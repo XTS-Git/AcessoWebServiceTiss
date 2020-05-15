@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="41968b5a-a7b7-4cca-988e-5a977d0ed9af" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://agendaweb.anacosta.com.br/ws/tissSolicitacaoProcedimento.asmx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="tissSolicitacaoProcedimento.disco" MetadataType="Disco" ID="ae14af1b-1b4e-42f7-80ad-ddf47d82affb" SourceId="1" SourceUrl="http://agendaweb.anacosta.com.br/ws/tissSolicitacaoProcedimento.asmx?disco" />
+    <MetadataFile FileName="schema1.xsd" MetadataType="Schema" ID="f5d528f6-4c8c-480f-9545-802e3d4c5f15" SourceId="1" SourceUrl="http://agendaweb.anacosta.com.br/ws/tissSolicitacaoProcedimento.asmx?schema=schema1" />
+    <MetadataFile FileName="schema2.xsd" MetadataType="Schema" ID="398a56e2-b4ad-465a-b3bf-db2375db343d" SourceId="1" SourceUrl="http://agendaweb.anacosta.com.br/ws/tissSolicitacaoProcedimento.asmx?schema=schema2" />
+    <MetadataFile FileName="tissSolicitacaoProcedimento.wsdl" MetadataType="Wsdl" ID="84926e60-3894-44f2-9f23-aafef1496c49" SourceId="1" SourceUrl="http://agendaweb.anacosta.com.br/ws/tissSolicitacaoProcedimento.asmx?wsdl=wsdl1" />
+    <MetadataFile FileName="tissSolicitacaoProcedimento1.wsdl" MetadataType="Wsdl" ID="0f999b1a-5e43-4ae7-8818-40df6e867cf1" SourceId="1" SourceUrl="http://agendaweb.anacosta.com.br/ws/tissSolicitacaoProcedimento.asmx?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

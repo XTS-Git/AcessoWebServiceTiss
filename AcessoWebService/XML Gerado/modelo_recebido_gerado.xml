@@ -1,0 +1,49 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <autorizacaoProcedimentoWS xmlns="http://www.ans.gov.br/padroes/tiss/schemas">
+         <cabecalho>
+            <identificacaoTransacao>
+               <tipoTransacao>RESPOSTA_SOLICITACAO</tipoTransacao>
+               <sequencialTransacao>7137</sequencialTransacao>
+               <dataRegistroTransacao>2019-06-18</dataRegistroTransacao>
+               <horaRegistroTransacao>16:50:45.4953095-03:00</horaRegistroTransacao>
+            </identificacaoTransacao>
+            <origem>
+               <identificacaoPrestador>
+                  <codigoPrestadorNaOperadora>587466</codigoPrestadorNaOperadora>
+               </identificacaoPrestador>
+            </origem>
+            <destino>
+               <registroANS>359017</registroANS>
+            </destino>
+            <Padrao>3.03.03</Padrao>
+         </cabecalho>
+         <autorizacaoProcedimento>
+            <autorizacaoServico>
+               <dadosAutorizacao>
+                  <numeroGuiaPrestador>44920</numeroGuiaPrestador>
+                  <numeroGuiaOperadora>0</numeroGuiaOperadora>
+                  <senha>0</senha>
+               </dadosAutorizacao>
+               <dadosBeneficiario>
+                  <numeroCarteira>GG05000011184800</numeroCarteira>
+                  <atendimentoRN>N</atendimentoRN>
+                  <nomeBeneficiario>TESTE WEBSERVICE</nomeBeneficiario>
+               </dadosBeneficiario>
+               <statusSolicitacao>1</statusSolicitacao>
+               <servicosAutorizados>
+                  <servicoAutorizado>
+                     <procedimento>
+                        <codigoTabela>22</codigoTabela>
+                        <codigoProcedimento>40601137</codigoProcedimento>
+                        <descricaoProcedimento>CITOLOGIA ONCOTICA</descricaoProcedimento>
+                     </procedimento>
+                     <quantidadeSolicitada>1</quantidadeSolicitada>
+                     <quantidadeAutorizada>1</quantidadeAutorizada>
+                  </servicoAutorizado>
+               </servicosAutorizados>
+            </autorizacaoServico>
+         </autorizacaoProcedimento>
+      </autorizacaoProcedimentoWS>
+   </soap:Body>
+</soap:Envelope>

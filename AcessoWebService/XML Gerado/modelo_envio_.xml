@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:ans="http://www.ans.gov.br/padroes/tiss/schemas" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <solicitacaoProcedimentoWS xmlns="http://www.ans.gov.br/padroes/tiss/schemas">
+      <cabecalho>
+        <identificacaoTransacao>
+          <tipoTransacao>SOLICITACAO_PROCEDIMENTOS</tipoTransacao>
+          <sequencialTransacao>7137</sequencialTransacao>
+          <dataRegistroTransacao>2018-06-15</dataRegistroTransacao>
+          <horaRegistroTransacao>08:44:55.7643767-03:00</horaRegistroTransacao>
+        </identificacaoTransacao>
+        <origem>
+          <identificacaoPrestador>
+            <codigoPrestadorNaOperadora>587466</codigoPrestadorNaOperadora>
+          </identificacaoPrestador>
+        </origem>
+        <destino>
+          <registroANS>359017</registroANS>
+        </destino>
+        <versaoPadrao>3.02.01</versaoPadrao>
+      </cabecalho>
+      <solicitacaoProcedimento>
+        <solicitacaoSP-SADT>
+          <cabecalhoSolicitacao>
+            <registroANS>359017</registroANS>
+            <numeroGuiaPrestador>44920</numeroGuiaPrestador>
+          </cabecalhoSolicitacao>
+          <dadosBeneficiario>
+            <numeroCarteira>GG05000011184800</numeroCarteira>
+            <atendimentoRN>N</atendimentoRN>
+            <nomeBeneficiario>TESTE WEBSERVICE</nomeBeneficiario>
+          </dadosBeneficiario>
+          <dadosSolicitante>
+            <contratadoSolicitante>
+              <codigoPrestadorNaOperadora>00000</codigoPrestadorNaOperadora>
+              <nomeContratado>LABORATORIO</nomeContratado>
+            </contratadoSolicitante>
+            <profissionalSolicitante>
+              <nomeProfissional>MEDICO</nomeProfissional>
+              <conselhoProfissional>06</conselhoProfissional>
+              <numeroConselhoProfissional>00000</numeroConselhoProfissional>
+              <UF>35</UF>
+              <CBOS>225250</CBOS>
+            </profissionalSolicitante>
+          </dadosSolicitante>
+          <caraterAtendimento>1</caraterAtendimento>
+          <dataSolicitacao>2019-06-01</dataSolicitacao>
+          <procedimentosSolicitados>
+            <procedimento>
+              <codigoTabela>22</codigoTabela>
+              <codigoProcedimento>40601137</codigoProcedimento>
+              <descricaoProcedimento>CITOLOGIA ONCOTICA</descricaoProcedimento>
+            </procedimento>
+            <quantidadeSolicitada>1</quantidadeSolicitada>
+          </procedimentosSolicitados>
+          <dadosExecutante>
+            <codigonaOperadora>587466</codigonaOperadora>
+            <nomeContratado>LABORATORIO DE ANALISES CLINICAS PARA TESTES</nomeContratado>
+            <CNES>6284159</CNES>
+          </dadosExecutante>
+        </solicitacaoSP-SADT>
+      </solicitacaoProcedimento>
+      <hash>AC6E7E2DDEE4F7A906ADC43B02096BD5</hash>
+    </solicitacaoProcedimentoWS>
+  </soap:Body>
+</soap:Envelope>

@@ -1,7 +1,6 @@
 C:\WorkSpace\ProjetosGIT\AcessoWebServiceTiss\AcessoWebService\bin\AcessoWebService.dll.config
 C:\WorkSpace\ProjetosGIT\AcessoWebServiceTiss\AcessoWebService\bin\AcessoWebService.dll
 C:\WorkSpace\ProjetosGIT\AcessoWebServiceTiss\AcessoWebService\bin\AcessoWebService.pdb
-C:\WorkSpace\ProjetosGIT\AcessoWebServiceTiss\AcessoWebService\obj\Debug\AcessoWebService.csprojAssemblyReference.cache
 C:\WorkSpace\ProjetosGIT\AcessoWebServiceTiss\AcessoWebService\obj\Debug\AcessoWebService.csproj.CoreCompileInputs.cache
 C:\WorkSpace\ProjetosGIT\AcessoWebServiceTiss\AcessoWebService\obj\Debug\AcessoWebService.dll
 C:\WorkSpace\ProjetosGIT\AcessoWebServiceTiss\AcessoWebService\obj\Debug\AcessoWebService.pdb

@@ -47,7 +47,7 @@ namespace AcessoWebService
 
             ctm_spsadtSolicitacaoGuia guia = new ctm_spsadtSolicitacaoGuia();
             guia.procedimentosSolicitados = listProcedimento.ToArray();
-            // solicitacao.solicitacaoProcedimento.Item = ctm_solicitaca
+            // solicitacao.solicitacaoProcedimento.Item = ctm_solicitaca;
 
 
 

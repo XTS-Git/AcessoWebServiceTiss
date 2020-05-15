@@ -1,2 +1,5 @@
-AcessoWebService\bin\
-AcessoWebService\obj\
+AcessoWebService/bin/
+AcessoWebService/obj/
+AcessoWebService/obj/Debug/AcessoWebService.dll
+AcessoWebService/obj/Debug/AcessoWebService.pdb
+AcessoWebService/bin/AcessoWebService.dll

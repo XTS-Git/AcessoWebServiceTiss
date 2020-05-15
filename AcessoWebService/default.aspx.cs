@@ -24,7 +24,7 @@ namespace AcessoWebService
             solicitacao.cabecalho = new cabecalhoTransacao();
             solicitacao.cabecalho.identificacaoTransacao = new cabecalhoTransacaoIdentificacaoTransacao();
             solicitacao.cabecalho.identificacaoTransacao.tipoTransacao = dm_tipoTransacao.SOLICITACAO_PROCEDIMENTOS;
-            solicitacao.cabecalho.identificacaoTransacao.sequencialTransacao = sequencial"; // número que identifica a transação
+            solicitacao.cabecalho.identificacaoTransacao.sequencialTransacao = sequencial; // número que identifica a transação
             solicitacao.cabecalho.identificacaoTransacao.dataRegistroTransacao = DateTime.Now.Date;
             solicitacao.cabecalho.identificacaoTransacao.horaRegistroTransacao = DateTime.Now;
             

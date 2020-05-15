@@ -5,8 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-// using AcessoWebService.ACSWebService;
-using ACS.WebService.Autorizador.xsd;
+using AcessoWebService.TissSolicitacaoProcedimento;
 
 namespace AcessoWebService
 {
@@ -18,7 +17,8 @@ namespace AcessoWebService
         }
 
         [WebMethod]
-        public static string enviaSolicitacao(string numerocarteira, string sequencial)
+        public static string enviaSolicitacao(string numerocarteira, string sequencial, string codigoProcedimento, string descricaoProcedimento, string codigoPrestadorNaOperadora,
+                                               string registroANS)
         {
             solicitacaoProcedimentoWS solicitacao = new solicitacaoProcedimentoWS();
             solicitacao.cabecalho = new cabecalhoTransacao();
@@ -30,24 +30,47 @@ namespace AcessoWebService
             
             ct_prestadorIdentificacao identificacao = new ct_prestadorIdentificacao();
             identificacao.ItemElementName = ItemChoiceType.codigoPrestadorNaOperadora;
-            identificacao.Item = "50505050";
+            identificacao.Item = codigoPrestadorNaOperadora;
             solicitacao.cabecalho.origem.Item = identificacao;
 
             cabecalhoTransacaoDestino destino = new cabecalhoTransacaoDestino();
-            destino.Item = "ANS";
+            ct_guiaCabecalho guiaCab = new ct_guiaCabecalho();
+            guiaCab.registroANS = registroANS;
+            destino.Item = guiaCab;
             solicitacao.cabecalho.destino.Item = destino;
             solicitacao.cabecalho.Padrao = dm_versao.Item30303;
 
             List<ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados> listProcedimento = new List<ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados>();
+
             ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados procedimento = new ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados();
             procedimento.procedimento = new ct_procedimentoDados();
-            procedimento.procedimento.codigoProcedimento = "10101012";
-            procedimento.procedimento.descricaoProcedimento = "consulta";
+            procedimento.procedimento.codigoProcedimento = codigoProcedimento;
+            procedimento.procedimento.descricaoProcedimento = descricaoProcedimento;
             procedimento.procedimento.codigoTabela = dm_tabela.Item00;
 
-            ctm_spsadtSolicitacaoGuia guia = new ctm_spsadtSolicitacaoGuia();
-            guia.procedimentosSolicitados = listProcedimento.ToArray();
-            // solicitacao.solicitacaoProcedimento.Item = ctm_solicitaca;
+            
+
+            ctm_spsadtSolicitacaoGuia guiaSADT = new ctm_spsadtSolicitacaoGuia();
+            guiaSADT.procedimentosSolicitados = listProcedimento.ToArray();
+
+
+            ct_solicitacaoProcedimento ctSoliciatacao = new ct_solicitacaoProcedimento();
+            ctm_spsadtSolicitacaoGuia sadtGuia = new ctm_spsadtSolicitacaoGuia();
+            // sadtGuia.dadosBeneficiario
+            //ctSoliciatacao.Item
+            //ctSoliciatacao.Item.
+
+            // solicitacao.solicitacaoProcedimento = ct_solicitacaoProcedimento();
+
+            //tissSolicitacaoProcedimento_OperationRequest connect = new tissSolicitacaoProcedimento_OperationRequest();
+            //connect.solicitacaoProcedimentoWS = solicitacao;
+
+
+
+
+
+
+
 
 
 

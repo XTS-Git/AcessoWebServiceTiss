@@ -55,27 +55,27 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\TissSolicitacaoProcedimento\AcessoWebService.TissSolicitacaoProcedimento.autorizacaoProcedimentoWS.datasource">
+    <Content Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\AcessoWebService.Localhost5000TissSolicitacaoProcedimento.autorizacaoProcedimentoWS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\TissSolicitacaoProcedimento\schema1.xsd">
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\schema1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TissSolicitacaoProcedimento\schema2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\TissSolicitacaoProcedimento\tissSolicitacaoProcedimento.disco" />
-    <None Include="Connected Services\TissSolicitacaoProcedimento\configuration91.svcinfo" />
-    <None Include="Connected Services\TissSolicitacaoProcedimento\configuration.svcinfo" />
-    <None Include="Connected Services\TissSolicitacaoProcedimento\Reference.svcmap">
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\tissSolicitacaoProcedimento.disco" />
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\configuration91.svcinfo" />
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\configuration.svcinfo" />
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Connected Services\TissVerificaElegibilidade\AcessoWebService.TissVerificaElegibilidade.respostaElegibilidadeWS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\TissSolicitacaoProcedimento\tissSolicitacaoProcedimento.wsdl" />
-    <None Include="Connected Services\TissSolicitacaoProcedimento\tissSolicitacaoProcedimento1.wsdl" />
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\schema2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\tissSolicitacaoProcedimento.wsdl" />
+    <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\tissSolicitacaoProcedimento1.wsdl" />
     <None Include="Connected Services\TissVerificaElegibilidade\schema1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -103,7 +103,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\TissSolicitacaoProcedimento\Reference.cs">
+    <Compile Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -121,13 +121,12 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tissWebServicesV3_03_03.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\TissSolicitacaoProcedimento\" />
+    <WCFMetadataStorage Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\" />
     <WCFMetadataStorage Include="Connected Services\TissVerificaElegibilidade\" />
   </ItemGroup>
   <PropertyGroup>

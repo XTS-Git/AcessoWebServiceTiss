@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="nFfSt7G5NxMGa8Y9rCBnbj4XCVCjK4RIhLzx0yuyh4g=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Sa4224SbGdyOMwaHldraGMQguyjy4AiUL1qXxoN6weE=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="tissSolicitacaoProcedimento_Binding">
       <properties>
@@ -263,10 +263,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="tissSolicitacaoProcedimento_Binding" contract="TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding" bindingType="basicHttpBinding" address="http://localhost:55111/tissSolicitacaoProcedimento.asmx" bindingConfiguration="tissSolicitacaoProcedimento_Binding">
+    <endpoint name="tissSolicitacaoProcedimento_Binding" contract="Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding" bindingType="basicHttpBinding" address="http://localhost:5000/tissSolicitacaoProcedimento.asmx" bindingConfiguration="tissSolicitacaoProcedimento_Binding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:55111/tissSolicitacaoProcedimento.asmx</serializedValue>
+          <serializedValue>http://localhost:5000/tissSolicitacaoProcedimento.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -278,7 +278,7 @@
           <serializedValue>tissSolicitacaoProcedimento_Binding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding</serializedValue>
+          <serializedValue>Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

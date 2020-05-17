@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AcessoWebService.TissSolicitacaoProcedimento {
+namespace AcessoWebService.Localhost5000TissSolicitacaoProcedimento {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303", ConfigurationName="TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303", ConfigurationName="Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding")]
     public interface tissSolicitacaoProcedimento_Binding {
         
         // CODEGEN: Gerando contrato de mensagem porque a operação tissSolicitacaoProcedimento_Operation não é RPC nem documento codificado.
@@ -20,7 +20,7 @@ namespace AcessoWebService.TissSolicitacaoProcedimento {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SignatureType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ctm_solicitacaoLote))]
-        AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationResponse tissSolicitacaoProcedimento_Operation(AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest request);
+        AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationResponse tissSolicitacaoProcedimento_Operation(AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest request);
     }
     
     /// <remarks/>
@@ -12919,12 +12919,12 @@ namespace AcessoWebService.TissSolicitacaoProcedimento {
     public partial class tissSolicitacaoProcedimento_OperationRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.ans.gov.br/padroes/tiss/schemas", Order=0)]
-        public AcessoWebService.TissSolicitacaoProcedimento.solicitacaoProcedimentoWS solicitacaoProcedimentoWS;
+        public AcessoWebService.Localhost5000TissSolicitacaoProcedimento.solicitacaoProcedimentoWS solicitacaoProcedimentoWS;
         
         public tissSolicitacaoProcedimento_OperationRequest() {
         }
         
-        public tissSolicitacaoProcedimento_OperationRequest(AcessoWebService.TissSolicitacaoProcedimento.solicitacaoProcedimentoWS solicitacaoProcedimentoWS) {
+        public tissSolicitacaoProcedimento_OperationRequest(AcessoWebService.Localhost5000TissSolicitacaoProcedimento.solicitacaoProcedimentoWS solicitacaoProcedimentoWS) {
             this.solicitacaoProcedimentoWS = solicitacaoProcedimentoWS;
         }
     }
@@ -12936,23 +12936,23 @@ namespace AcessoWebService.TissSolicitacaoProcedimento {
     public partial class tissSolicitacaoProcedimento_OperationResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.ans.gov.br/padroes/tiss/schemas", Order=0)]
-        public AcessoWebService.TissSolicitacaoProcedimento.autorizacaoProcedimentoWS autorizacaoProcedimentoWS;
+        public AcessoWebService.Localhost5000TissSolicitacaoProcedimento.autorizacaoProcedimentoWS autorizacaoProcedimentoWS;
         
         public tissSolicitacaoProcedimento_OperationResponse() {
         }
         
-        public tissSolicitacaoProcedimento_OperationResponse(AcessoWebService.TissSolicitacaoProcedimento.autorizacaoProcedimentoWS autorizacaoProcedimentoWS) {
+        public tissSolicitacaoProcedimento_OperationResponse(AcessoWebService.Localhost5000TissSolicitacaoProcedimento.autorizacaoProcedimentoWS autorizacaoProcedimentoWS) {
             this.autorizacaoProcedimentoWS = autorizacaoProcedimentoWS;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface tissSolicitacaoProcedimento_BindingChannel : AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding, System.ServiceModel.IClientChannel {
+    public interface tissSolicitacaoProcedimento_BindingChannel : AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class tissSolicitacaoProcedimento_BindingClient : System.ServiceModel.ClientBase<AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding>, AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding {
+    public partial class tissSolicitacaoProcedimento_BindingClient : System.ServiceModel.ClientBase<AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding>, AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding {
         
         public tissSolicitacaoProcedimento_BindingClient() {
         }
@@ -12974,14 +12974,14 @@ namespace AcessoWebService.TissSolicitacaoProcedimento {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationResponse AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding.tissSolicitacaoProcedimento_Operation(AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest request) {
+        AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationResponse AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding.tissSolicitacaoProcedimento_Operation(AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest request) {
             return base.Channel.tissSolicitacaoProcedimento_Operation(request);
         }
         
-        public AcessoWebService.TissSolicitacaoProcedimento.autorizacaoProcedimentoWS tissSolicitacaoProcedimento_Operation(AcessoWebService.TissSolicitacaoProcedimento.solicitacaoProcedimentoWS solicitacaoProcedimentoWS) {
-            AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest inValue = new AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest();
+        public AcessoWebService.Localhost5000TissSolicitacaoProcedimento.autorizacaoProcedimentoWS tissSolicitacaoProcedimento_Operation(AcessoWebService.Localhost5000TissSolicitacaoProcedimento.solicitacaoProcedimentoWS solicitacaoProcedimentoWS) {
+            AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest inValue = new AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationRequest();
             inValue.solicitacaoProcedimentoWS = solicitacaoProcedimentoWS;
-            AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationResponse retVal = ((AcessoWebService.TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding)(this)).tissSolicitacaoProcedimento_Operation(inValue);
+            AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_OperationResponse retVal = ((AcessoWebService.Localhost5000TissSolicitacaoProcedimento.tissSolicitacaoProcedimento_Binding)(this)).tissSolicitacaoProcedimento_Operation(inValue);
             return retVal.autorizacaoProcedimentoWS;
         }
     }

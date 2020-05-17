@@ -2,8 +2,8 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema targetNamespace="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303">
-      <s:import schemaLocation="http://localhost:55111/tissSolicitacaoProcedimento.asmx?schema=schema1" namespace="http://www.ans.gov.br/padroes/tiss/schemas" />
-      <s:import schemaLocation="http://localhost:55111/tissSolicitacaoProcedimento.asmx?schema=schema2" namespace="http://www.w3.org/2000/09/xmldsig#" />
+      <s:import schemaLocation="http://localhost:5000/tissSolicitacaoProcedimento.asmx?schema=schema1" namespace="http://www.ans.gov.br/padroes/tiss/schemas" />
+      <s:import schemaLocation="http://localhost:5000/tissSolicitacaoProcedimento.asmx?schema=schema2" namespace="http://www.w3.org/2000/09/xmldsig#" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="tissSolicitacaoProcedimento_OperationSoapIn">

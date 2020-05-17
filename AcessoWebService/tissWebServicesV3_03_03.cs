@@ -13,7 +13,7 @@
 // 
 using System.Xml.Serialization;
 
-namespace ACS.WebService.Autorizador.xsd {
+namespace OLD.WebService.Autorizador.xsd {
    
     
     /// <remarks/>

@@ -1,8 +1,7 @@
-<h1>Acesso ao WebService Ana Costa Saúde</h1>
+<h1>Exemplo de troca de Informação padrão TISS/ANS</h1>
 
-Projeto Web asp.net, para acesso ao WebService do Ana Costa Saúde,
-e fazer testes de acesso.
-A classe foi criada em C# um projeto simples, uma página só para testes
+Projeto Web para comunicação/troca de informação em asp.net. framework 3.5
+Um projeto simples em C#, uma página só para testes
 e ajudar quem está com dificuldade em entender como enviar as solicitações.
 
 Todos os Códigos usado aqui são fictícios e servem apenas como ilustração de uso.

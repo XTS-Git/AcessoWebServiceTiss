@@ -1,3 +1,4 @@
-AcessoWebService/bin/
-AcessoWebService/obj/
+/AcessoWebService/bin/*
+/AcessoWebService/bin/*
+/AcessoWebService/obj/*
 padrao_tiss_representacao_de_conceitos_em_saude_202004.zip

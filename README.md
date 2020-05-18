@@ -4,7 +4,7 @@
 - Criado em `asp.net/C#. framework 3.5`
 - Projeto simples explicando como enviar solicitações para autorizar procedimentos.
 - Você irá precisar de um webService para testes
-### Solicitação de Procedimentos `Padrão TISS 3.0.3`
+### Solicitação de Procedimentos `Padrão TISS 3.03.03`
 > solicitacaoProcedimentoWS 
 - classe para envio da solicitação de procedimentos.
 > autorizacaoProcedimentoWS

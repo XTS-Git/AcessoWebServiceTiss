@@ -1,4 +1,4 @@
-# Troca de Informação padrão TISS/ANS
+# Troca de Informações padrão TISS/ANS
 
 - Projeto Web para comunicação/troca de informação 
 - Criado em `asp.net/C#. framework 3.5`

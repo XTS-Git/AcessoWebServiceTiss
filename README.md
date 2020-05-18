@@ -10,7 +10,7 @@ está com dificuldade em entender como montar os pacotes de solicitações
 > solicitacaoProcedimentoWS 
 - classe para envio da solicitação de procedimentos.
 > autorizacaoProcedimentoWS
-- Classe com a resposta da requisição.
+- Classe com a resposta da solicitação.
 
 ----
 - Existem 2 projetos do SOAPUI para teste dos XML gerados

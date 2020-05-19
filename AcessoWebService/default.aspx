@@ -98,14 +98,14 @@
                 try {
                     $.ajax({
                         url: 'default.aspx/enviaSolicitacao',
-                        data: "{numerocarteira:'" + numeroCarteira + "', sequencial:'" + sequencial + "', codigoProcedimento:'" + codigoProcedimento + "', descricaoProcedimento:'" + descricaoProcedimento + "',  codigoPrestadorNaOperadora:'" + codigoPrestadorNaOperadora + "', registroANS:'" + registroANS + "'}",
+                        data: "{numerocarteira:'" + $('#numeroCarteira').val() + "', sequencial:'" + $('#sequencial').val() + "', codigoProcedimento:'" + $('#codigoProcedimento').val() + "', descricaoProcedimento:'" + $('#descricaoProcedimento').val() + "',  codigoPrestadorNaOperadora:'" + $('#codigoPrestadorNaOperadora').val() + "', registroANS:'" + $('#registroANS').val() + "'}",
                         type: "POST",
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         async: true,
                         success: function (response) {
                             if (response) {
-                                $('#retornoAutorizacaoXML').html(response.d);
+                                $('#retornoAutorizacaoXML').text(response.d);
                             } else {
                                 $('#retornoAutorizacaoXML').html('Não retornou nada');
                             }

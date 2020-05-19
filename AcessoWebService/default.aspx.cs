@@ -82,18 +82,25 @@ namespace AcessoWebService
                 #endregion ORIGEM
 
                 #region DESTINO
-                //cabecalhoTransacaoDestino destino = new cabecalhoTransacaoDestino();
-                //destino.Item
-
+                // cabecalhoTransacaoDestino destino = new cabecalhoTransacaoDestino();
                 solicitacao.cabecalho.destino = new cabecalhoTransacaoDestino();
                 solicitacao.cabecalho.destino.Item = registroANS;
-
-
                 #endregion DESTINO
 
                 solicitacao.cabecalho.Padrao = dm_versao.Item30303;
 
                 #region PROCEDIMENTOS
+
+                ctm_spsadtSolicitacaoGuia guiaSADT = new ctm_spsadtSolicitacaoGuia();
+                guiaSADT.dadosBeneficiario = new ct_beneficiarioDados();
+                guiaSADT.dadosBeneficiario.atendimentoRN = dm_simNao.N;
+                guiaSADT.dadosBeneficiario.nomeBeneficiario = "teste do teste";
+                guiaSADT.dadosBeneficiario.numeroCarteira = numerocarteira;
+                guiaSADT.cabecalhoSolicitacao = new ct_guiaCabecalho();
+                guiaSADT.cabecalhoSolicitacao.numeroGuiaPrestador = "000";
+                guiaSADT.cabecalhoSolicitacao.registroANS = registroANS;
+
+
                 List<ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados> listProcedimento = new List<ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados>();
 
                 ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados procedimento = new ctm_spsadtSolicitacaoGuiaProcedimentosSolicitados();
@@ -102,20 +109,13 @@ namespace AcessoWebService
                 procedimento.procedimento.descricaoProcedimento = descricaoProcedimento;
                 procedimento.procedimento.codigoTabela = dm_tabela.Item00;
                 listProcedimento.Add(procedimento);
-
-                ctm_spsadtSolicitacaoGuia guiaSADT = new ctm_spsadtSolicitacaoGuia();
+                ///
                 guiaSADT.procedimentosSolicitados = listProcedimento.ToArray();
 
+                ct_solicitacaoProcedimento solicitacaoProcedimento =  new ct_solicitacaoProcedimento();
+                solicitacaoProcedimento.Item = guiaSADT;
 
-                ct_solicitacaoProcedimento ctSoliciatacao = new ct_solicitacaoProcedimento();
-                ctm_spsadtSolicitacaoGuia sadtGuia = new ctm_spsadtSolicitacaoGuia();
-
-
-                // sadtGuia.dadosBeneficiario
-                //ctSoliciatacao.Item
-                //ctSoliciatacao.Item.
-
-                // solicitacao.solicitacaoProcedimento = ct_solicitacaoProcedimento();
+                solicitacao.solicitacaoProcedimento = solicitacaoProcedimento;
                 #endregion PROCEDIMENTOS
 
                 return solicitacao;

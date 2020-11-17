@@ -206,6 +206,8 @@
     <Content Include="FontAwesome-5-11\webfonts\fa-regular-400.svg" />
     <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.svg" />
     <Content Include="js\jquery-3.4.1.js" />
+    <Content Include="js\jquery-3.4.1.min.js" />
+    <Content Include="js\uteis.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

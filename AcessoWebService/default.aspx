@@ -11,34 +11,74 @@
 
     <script src="./js/jquery-3.4.1.js"></script>
     <script src="bootstrap-4.0.0/js/bootstrap.js"></script>
-
+    <script src="js/uteis.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
-                <h3>TISS/ANS</h3>
+            <h3>TISS/ANS</h3>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="numeroCarteira">Número Carteira</label>
-                    <input type="text" class="form-control" id="numeroCarteira" /> 
-
-                    <label for="sequencial">Sequencial ( gerado automaticamente )</label>
-                    <input type="text" class="form-control" id="sequencial" /> 
-
+                    <input type="text" class="form-control" id="numeroCarteira" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="codigoProcedimento">Código Procedimento</label>
-                    <input type="text" class="form-control" id="codigoProcedimento" /> 
+                    <%--<input type="text" class="form-control" id="codigoProcedimento" /> --%>
+                    <select id="codigoProcedimento" class="form-control">
+                        <option value="">Selecione</option>
+                        <option value="20104294">20104294</option>
+                        <option value="20104251">20104251</option>
+                        <option value="10101012">10101012</option>
+                        <option value="20104430">20104430</option>
+                        <option value="20104278">20104278</option>
+                        <option value="20104286">20104286</option>
+                        <option value="98000100">98000100</option>
+                        <option value="60018607">60018607</option>
+                        <option value="20104251">20104251</option>
+                        <option value="60023406">60023406</option>
+                        <option value="20104260">20104260</option>
+                        <option value="20104421">20104421</option>
+                        <option value="20104308">20104308</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="sequencial">Sequencial ( gerado automaticamente )</label>
+                    <input type="text" class="form-control" id="sequencial" />
 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="descricaoProcedimento">descrição procedimento</label>
-                    <input type="text" class="form-control" id="descricaoProcedimento" /> 
+                    <input type="text" class="form-control" id="descricaoProcedimento" />
 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="codigoPrestadorNaOperadora">Código Prestador</label>
-                    <input type="text" class="form-control" id="codigoPrestadorNaOperadora" /> 
-
+                    <input type="text" class="form-control" id="codigoPrestadorNaOperadora" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="registroANS">Registro ANS</label>
-                    <input type="text" class="form-control" id="registroANS" /> 
+                    <input type="text" class="form-control" id="registroANS" />
 
-
-                <br />
-                <input type="button" id="btnEnvia" class="btn"  value="envia solicitação" />
-                <input type="button" id="btnRecebeXML" class="btn" value="Gera XML de envio" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="button" id="btnEnvia" class="btn" value="envia solicitação" />
+                    <input type="button" id="btnRecebeXML" class="btn" value="Gera XML de envio" />
+                </div>
+            </div>
              </div>
         <br />
         <div class="container-fluid" style="border:solid 1px #000;">
@@ -52,10 +92,11 @@
               <tbody>
                 <tr>
                     <td style="width:50%;">
-                        <span id="retornoAutorizacaoXML" ></span>
+                        <%--<span id="retornoAutorizacaoXML" ></span>--%>
+                        <textarea style="width:100%;" id="retornoAutorizacaoXML" rows="10" ></textarea>
                     </td>
                     <td >
-                        <span id="retornaXMLExemplo"></span>
+                        <textarea style="width: 100%;" id="retornaXMLExemplo" rows="10"></textarea>
                     </td>
                 </tr>
               </tbody>

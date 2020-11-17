@@ -40,24 +40,25 @@
 
             //if (_dto.idtUsuario != null)
             //{
-            //    if (Request.Browser.Cookies)
-            //    {
-            //        HttpCookie cokLogin = new HttpCookie("cokLogin");
-            //        HttpCookie cokIdtUsuario = new HttpCookie("cokIdtUsuario");
-            //        cokLogin.Value = Login1.UserName;
-            //        cokLogin.Expires = DateTime.Today.AddDays(30);
+            if (Login1.UserName == "acshac" && Login1.Password == "acshac123")
+                if (Request.Browser.Cookies)
+                {
+                    HttpCookie cokLogin = new HttpCookie("cokLogin");
+                    HttpCookie cokIdtUsuario = new HttpCookie("cokIdtUsuario");
+                    cokLogin.Value = Login1.UserName;
+                    cokLogin.Expires = DateTime.Today.AddDays(30);
 
             //        cokIdtUsuario.Value = _dto.idtUsuario.ToString();
             //        cokIdtUsuario.Expires = DateTime.Today.AddDays(30);
 
-            //        Response.Cookies.Add(cokLogin);
+                    Response.Cookies.Add(cokLogin);
             //        Response.Cookies.Add(cokIdtUsuario);
 
 
-            //    }
-            //    FormsAuthentication.RedirectFromLoginPage(Login1.UserName, false);
-            //}
-            FormsAuthentication.RedirectFromLoginPage(Login1.UserName, false);
+                }
+                FormsAuthentication.RedirectFromLoginPage(Login1.UserName, false);
+            }
+            
         }
         catch (Exception ex)
         {
@@ -97,84 +98,64 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <%--                BorderStyle="Solid" 
-                BackColor="#F7F7DE" 
-                BorderWidth="1px"
-                BorderColor="#CCCC99" 
-                Font-Size="10pt" 
-                Font-Names="Verdana" 
-                CreateUserText="Create a new user..."
-                CreateUserUrl="newUser.aspx" 
-                HelpPageUrl="help.aspx"
-        BorderStyle="Solid" 
-        BackColor="#F7F7DE" 
-        BorderWidth="1px"
-    BorderColor="#CCCC99" 
-                PasswordRecoveryUrl="getPass.aspx" 
-                UserNameLabelText="Email address:" --%>
-
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Autorizador Procedimentos</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <div class="divGrupo" style="width: 519px;height:290px;" id="divLogin">
-                <%--Width="519" Height="290"--%>
-            <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" OnLoggingIn="OnLoggingIn" OnLoginError="OnLoginError"
-                BorderPadding="0"
-                Width="100%"
-                >
-                <LayoutTemplate>
-                        <fieldset>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <label class="control-label" for="">
-                                        Usuário
-                                    </label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                        </div>
-                                        <asp:TextBox ID="UserName" CssClass="form-control" placeholder="Usuário" runat="server"></asp:TextBox>
+<form id="form1" runat="server">
+<div class="divGrupo" id="divLogin" style="width:519px;height:350px;">
+<asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" OnLoggingIn="OnLoggingIn" OnLoginError="OnLoginError" BorderPadding="0" 
+    Width="519" Height="350">
+    <LayoutTemplate>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: center;">
+                                <h3>Autorizador Procedimentos</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="control-label" for="">Usuário</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
                                     </div>
-                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ValidationGroup="logLogin"
-                                        ControlToValidate="UserName" ErrorMessage="Usuário é obrigatório." ToolTip="Usuário é obrigatório."></asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="control-label" for="">Senha</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                        </div>
-                                        <asp:TextBox ID="Password" CssClass="form-control" placeholder="Senha" runat="server" TextMode="Password"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ValidationGroup="logLogin"
-                                        ControlToValidate="Password" ErrorMessage="Senha é obrigatória." ToolTip="Senha é obrigatória.">
-                                    </asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col-md-12" style="height: 22px; line-height: 22px; margin-bottom: 5px; color: red; text-align: center;">
-                                    <asp:Literal ID="FailureText" runat="server"></asp:Literal>
-                                </div>
-                                <div class="col-lg-12" style="margin-bottom: 10px;">
-                                    <div class="input-group" style="width: 100%">
-                                        <asp:Button ID="LoginButton" runat="server" CssClass="btn btn-success" CommandName="Login" Text="Log In" ValidationGroup="logLogin" Width="100%" />
-                                    </div>
+                                    <asp:TextBox ID="UserName" CssClass="form-control" placeholder="Usuário" runat="server"></asp:TextBox>
                                 </div>
                             </div>
-                        </fieldset>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ValidationGroup="logLogin"
+                                    ControlToValidate="UserName" ErrorMessage="Usuário é obrigatório." ToolTip="Usuário é obrigatório."></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                               <label class="control-label" for="">Senha</label>
+                               <div class="input-group mb-3">
+                               <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span></div>
+                                    <asp:TextBox ID="Password" CssClass="form-control" placeholder="Senha" runat="server" TextMode="Password"></asp:TextBox>
+                               </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ValidationGroup="logLogin"
+                                            ControlToValidate="Password" ErrorMessage="Senha é obrigatória." ToolTip="Senha é obrigatória.">
+                                        </asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="height: 22px; line-height: 22px; margin-bottom: 5px; color: red; text-align: center;">
+                                <asp:Literal ID="FailureText" runat="server"></asp:Literal>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:Button ID="LoginButton" runat="server" CssClass="btn btn-success" CommandName="Login" Text="Log In" ValidationGroup="logLogin" Width="100%" />
+                            </div>
+                        </div>
                     </div>
-                </LayoutTemplate>
-            </asp:Login>
-            </div>
-        </div>
-        <div class="col-md-3"></div>
-    </div> <%--row--%>
+    </LayoutTemplate>
+</asp:Login>
 </div>
 </form>
     <script>       

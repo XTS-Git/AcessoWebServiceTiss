@@ -166,6 +166,9 @@
     <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.ttf" />
     <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.woff" />
     <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.woff2" />
+    <None Include="Properties\PublishProfiles\autorizadorprocedimentos - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\autorizadorprocedimentos - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\autorizadorprocedimentos - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

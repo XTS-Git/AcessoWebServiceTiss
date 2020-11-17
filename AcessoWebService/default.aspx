@@ -7,6 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Acesso webservice TISS/ANS</title>
 
+    <meta http-equiv="PRAGMA" content="NO-CACHE" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <link href="bootstrap-4.0.0/css/bootstrap.css" rel="stylesheet" />
 
     <script src="./js/jquery-3.4.1.js"></script>
@@ -82,25 +91,16 @@
              </div>
         <br />
         <div class="container-fluid" style="border:solid 1px #000;">
-            <table class="table">
-             <thead>
-                <tr>
-                  <th scope="col">XML Retorno</th>
-                  <th scope="col">XML Gerado para envio ao webService</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                    <td style="width:50%;">
-                        <%--<span id="retornoAutorizacaoXML" ></span>--%>
-                        <textarea style="width:100%;" id="retornoAutorizacaoXML" rows="10" ></textarea>
-                    </td>
-                    <td >
-                        <textarea style="width: 100%;" id="retornaXMLExemplo" rows="10"></textarea>
-                    </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>XML Retorno</h4>
+                    <textarea style="width: 100%;" id="retornoAutorizacaoXML" rows="20"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <h4>XML Gerado para envio ao webService</h4>
+                    <textarea style="width: 100%;" id="retornaXMLExemplo" rows="20"></textarea>
+                </div>
+            </div>
         </div>
     </form>
 

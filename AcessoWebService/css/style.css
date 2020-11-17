@@ -1,0 +1,99 @@
+﻿body {
+    margin-left: auto !important;
+    margin-right:auto !important;
+    /*width: 100vw;
+    height: 100vh;*/
+    overflow: hidden;
+
+}
+
+.ui-selected {
+   background: #EEDD82 !important;
+}
+
+
+/*.cardBox {
+  	background-color:#FFFFFF;
+	border:solid 1px #cccccc;
+    -webkit-border-radius: 6px; 	-moz-border-radius: 6px; 	border-radius: 6px;
+	margin-top:8px;
+	margin-bottom:3px;
+	margin-left:auto;
+	margin-right:auto;
+	display:inline-block !important;
+    width:200px;    
+}
+
+    .cardBox:hover {
+        border-color:#000;
+        cursor: pointer;
+    }
+
+.cardBox-body {
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 40px;
+    font-weight:bold;
+}
+
+.cardBox-title {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight:bold;
+    border-bottom: solid 1px #ccc;
+}*/
+
+.divGrupo{
+	background-color:#FFFFFF;
+	border:solid 1px #cccccc;
+    -webkit-border-radius: 6px; 	-moz-border-radius: 6px; 	border-radius: 6px;
+	margin-top:8px;
+	margin-bottom:3px;
+	margin-left:auto;
+	margin-right:auto;
+	width:99%;
+	display:block !important;
+}
+
+.divRow{
+	display:block;
+	height:25px;
+	line-height:25px;
+	padding:0px;
+	width:99%;
+	text-indent:5px;
+	/*border-bottom:solid 1px #cccccc;*/
+}
+
+.bTitulo{
+	text-indent:15px;
+	font-weight: bold;
+	font-family: Verdana;
+   font-style:normal !important;
+	/*background: url(../imagens/fundo_barras_verde.jpg) repeat-x;*/
+    /*background-color: #16a421;*/
+   /*color:  #006400;*/
+	height:30px;
+	line-height:30px;
+	font-size: 16px;
+    border-bottom: solid 1px #ccc;
+	width: 100%;
+	-moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; -khtml-border-top-left-radius: 6px; border-top-left-radius: 6px;
+    -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -khtml-border-top-right-radius: 6px; border-top-right-radius: 6px;
+	display:block;
+}
+
+.boxBtn {
+	margin-top: 15px;
+    padding-bottom:3px;
+	height: 35px;
+    line-height: 35px;
+	border-top: 1px dashed #CCC;
+	line-height:22px;
+	text-align:right;
+	width:99%;
+	display:block;
+}

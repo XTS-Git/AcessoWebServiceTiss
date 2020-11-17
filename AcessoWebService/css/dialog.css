@@ -1,0 +1,60 @@
+﻿.apagaArea{    
+    /*position:absolute;*/
+	margin:0; padding:0;
+	background-color: gray;
+	opacity:.80;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.80;
+	z-index: 1;
+	border:solid 1px #c0c0c0;
+}
+
+.divBody {
+    display: block;
+    margin: 10px;
+}
+
+.divDialog{
+	background-color:#FFF;
+    box-shadow: 2px #aaa;
+    -webkit-border-radius: 8px; 	-moz-border-radius: 8px; 	border-radius: 8px;
+	margin-top:8px;
+	margin-bottom:3px;
+	margin-left:auto;
+	margin-right:auto;
+	width:99%;
+	display:block !important;
+}
+
+
+.ui-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.ui-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: solid 1px #ccc;
+    overflow: auto;
+    position: relative;
+    padding-right: 15px !important;
+    padding-left: 15px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;            
+} 
+.ui-widget {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;            
+}
+
+.ui-widget-content {
+    color: #222222;
+}    
+.ui-widget-header {
+    display:none;        
+}

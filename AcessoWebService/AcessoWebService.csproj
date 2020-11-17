@@ -55,6 +55,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="autentica.aspx" />
     <Content Include="bootstrap-4.0.0\css\bootstrap-grid.css" />
     <Content Include="bootstrap-4.0.0\css\bootstrap-grid.css.map" />
     <Content Include="bootstrap-4.0.0\css\bootstrap-grid.min.css" />
@@ -127,6 +128,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="css\dialog.css" />
+    <Content Include="css\style.css" />
     <Content Include="default.aspx" />
     <None Include="Connected Services\TissVerificaElegibilidade\tissVerificaElegibilidade.wsdl" />
     <None Include="Connected Services\TissVerificaElegibilidade\tissVerificaElegibilidade1.wsdl" />
@@ -208,12 +211,23 @@
     <Content Include="FontAwesome-5-11\webfonts\fa-brands-400.svg" />
     <Content Include="FontAwesome-5-11\webfonts\fa-regular-400.svg" />
     <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.svg" />
+    <Content Include="js\ajax.js" />
+    <Content Include="js\alert.js" />
+    <Content Include="js\dialog.js" />
     <Content Include="js\jquery-3.4.1.js" />
     <Content Include="js\jquery-3.4.1.min.js" />
+    <Content Include="js\mascaraFormatacao.js" />
     <Content Include="js\uteis.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="autentica.aspx.cs">
+      <DependentUpon>autentica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autentica.aspx.designer.cs">
+      <DependentUpon>autentica.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\AutorizadorProcedimentos\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -246,9 +260,7 @@
     <WCFMetadataStorage Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\" />
     <WCFMetadataStorage Include="Connected Services\TissVerificaElegibilidade\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

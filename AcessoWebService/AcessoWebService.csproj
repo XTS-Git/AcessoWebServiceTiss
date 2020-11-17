@@ -55,9 +55,47 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bootstrap-4.0.0\css\bootstrap-grid.css" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap-grid.css.map" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap-grid.min.css" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap-grid.min.css.map" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap-reboot.css" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap-reboot.css.map" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap-reboot.min.css" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap-reboot.min.css.map" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap.css" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap.css.map" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap.min.css" />
+    <Content Include="bootstrap-4.0.0\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.bundle.js" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.bundle.js.map" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.bundle.min.js" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.bundle.min.js.map" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.js" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.js.map" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.min.js" />
+    <Content Include="bootstrap-4.0.0\js\bootstrap.min.js.map" />
+    <Content Include="Connected Services\AutorizadorProcedimentos\AcessoWebService.AutorizadorProcedimentos.autorizacaoProcedimentoWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\AutorizadorProcedimentos\schema2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AutorizadorProcedimentos\tissSolicitacaoProcedimento.disco" />
+    <None Include="Connected Services\AutorizadorProcedimentos\configuration91.svcinfo" />
+    <None Include="Connected Services\AutorizadorProcedimentos\configuration.svcinfo" />
+    <None Include="Connected Services\AutorizadorProcedimentos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\AcessoWebService.Localhost5000TissSolicitacaoProcedimento.autorizacaoProcedimentoWS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\AutorizadorProcedimentos\schema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AutorizadorProcedimentos\tissSolicitacaoProcedimento.wsdl" />
+    <None Include="Connected Services\AutorizadorProcedimentos\tissSolicitacaoProcedimento1.wsdl" />
     <None Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\schema1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -89,14 +127,45 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="css\bootstrap-theme.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\jquery-ui.css" />
-    <Content Include="css\jquery-ui.structure.css" />
-    <Content Include="css\jquery-ui.theme.css" />
     <Content Include="default.aspx" />
     <None Include="Connected Services\TissVerificaElegibilidade\tissVerificaElegibilidade.wsdl" />
     <None Include="Connected Services\TissVerificaElegibilidade\tissVerificaElegibilidade1.wsdl" />
+    <Content Include="FontAwesome-5-11\less\brands.less" />
+    <Content Include="FontAwesome-5-11\less\fontawesome.less" />
+    <Content Include="FontAwesome-5-11\less\regular.less" />
+    <Content Include="FontAwesome-5-11\less\solid.less" />
+    <Content Include="FontAwesome-5-11\less\v4-shims.less" />
+    <Content Include="FontAwesome-5-11\less\_animated.less" />
+    <Content Include="FontAwesome-5-11\less\_bordered-pulled.less" />
+    <Content Include="FontAwesome-5-11\less\_core.less" />
+    <Content Include="FontAwesome-5-11\less\_fixed-width.less" />
+    <Content Include="FontAwesome-5-11\less\_icons.less" />
+    <Content Include="FontAwesome-5-11\less\_larger.less" />
+    <Content Include="FontAwesome-5-11\less\_list.less" />
+    <Content Include="FontAwesome-5-11\less\_mixins.less" />
+    <Content Include="FontAwesome-5-11\less\_rotated-flipped.less" />
+    <Content Include="FontAwesome-5-11\less\_screen-reader.less" />
+    <Content Include="FontAwesome-5-11\less\_shims.less" />
+    <Content Include="FontAwesome-5-11\less\_stacked.less" />
+    <Content Include="FontAwesome-5-11\less\_variables.less" />
+    <Content Include="FontAwesome-5-11\metadata\categories.yml" />
+    <Content Include="FontAwesome-5-11\metadata\icons.json" />
+    <Content Include="FontAwesome-5-11\metadata\icons.yml" />
+    <Content Include="FontAwesome-5-11\metadata\shims.json" />
+    <Content Include="FontAwesome-5-11\metadata\shims.yml" />
+    <Content Include="FontAwesome-5-11\metadata\sponsors.yml" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-brands-400.eot" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-brands-400.ttf" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-brands-400.woff" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-brands-400.woff2" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-regular-400.eot" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-regular-400.ttf" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-regular-400.woff" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-regular-400.woff2" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.eot" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.ttf" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.woff" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -105,11 +174,46 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\bootstrap.js" />
+    <Content Include="FontAwesome-5-11\css\all.css" />
+    <Content Include="FontAwesome-5-11\css\all.min.css" />
+    <Content Include="FontAwesome-5-11\css\brands.css" />
+    <Content Include="FontAwesome-5-11\css\brands.min.css" />
+    <Content Include="FontAwesome-5-11\css\fontawesome.css" />
+    <Content Include="FontAwesome-5-11\css\fontawesome.min.css" />
+    <Content Include="FontAwesome-5-11\css\regular.css" />
+    <Content Include="FontAwesome-5-11\css\regular.min.css" />
+    <Content Include="FontAwesome-5-11\css\solid.css" />
+    <Content Include="FontAwesome-5-11\css\solid.min.css" />
+    <Content Include="FontAwesome-5-11\css\svg-with-js.css" />
+    <Content Include="FontAwesome-5-11\css\svg-with-js.min.css" />
+    <Content Include="FontAwesome-5-11\css\v4-shims.css" />
+    <Content Include="FontAwesome-5-11\css\v4-shims.min.css" />
+    <Content Include="FontAwesome-5-11\js\all.js" />
+    <Content Include="FontAwesome-5-11\js\all.min.js" />
+    <Content Include="FontAwesome-5-11\js\brands.js" />
+    <Content Include="FontAwesome-5-11\js\brands.min.js" />
+    <Content Include="FontAwesome-5-11\js\conflict-detection.js" />
+    <Content Include="FontAwesome-5-11\js\conflict-detection.min.js" />
+    <Content Include="FontAwesome-5-11\js\fontawesome.js" />
+    <Content Include="FontAwesome-5-11\js\fontawesome.min.js" />
+    <Content Include="FontAwesome-5-11\js\regular.js" />
+    <Content Include="FontAwesome-5-11\js\regular.min.js" />
+    <Content Include="FontAwesome-5-11\js\solid.js" />
+    <Content Include="FontAwesome-5-11\js\solid.min.js" />
+    <Content Include="FontAwesome-5-11\js\v4-shims.js" />
+    <Content Include="FontAwesome-5-11\js\v4-shims.min.js" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-brands-400.svg" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-regular-400.svg" />
+    <Content Include="FontAwesome-5-11\webfonts\fa-solid-900.svg" />
     <Content Include="js\jquery-3.4.1.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\AutorizadorProcedimentos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,8 +237,12 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AutorizadorProcedimentos\" />
     <WCFMetadataStorage Include="Connected Services\Localhost5000TissSolicitacaoProcedimento\" />
     <WCFMetadataStorage Include="Connected Services\TissVerificaElegibilidade\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

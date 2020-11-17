@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://www.ans.gov.br/tiss/ws/tipos/tisssolicitacaoprocedimento/v30303">
+      <s:import schemaLocation="http://agendaweb.anacosta.com.br/ws/v30303/tissSolicitacaoProcedimento.asmx?schema=schema1" namespace="http://www.ans.gov.br/padroes/tiss/schemas" />
+      <s:import schemaLocation="http://agendaweb.anacosta.com.br/ws/v30303/tissSolicitacaoProcedimento.asmx?schema=schema2" namespace="http://www.w3.org/2000/09/xmldsig#" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="tissSolicitacaoProcedimento_OperationSoapIn">
+    <wsdl:part xmlns:q1="http://www.ans.gov.br/padroes/tiss/schemas" name="solicitacaoProcedimentoWS" element="q1:solicitacaoProcedimentoWS" />
+  </wsdl:message>
+  <wsdl:message name="tissSolicitacaoProcedimento_OperationSoapOut">
+    <wsdl:part xmlns:q2="http://www.ans.gov.br/padroes/tiss/schemas" name="tissSolicitacaoProcedimento_OperationResult" element="q2:autorizacaoProcedimentoWS" />
+  </wsdl:message>
+  <wsdl:portType name="tissSolicitacaoProcedimento_Binding">
+    <wsdl:operation name="tissSolicitacaoProcedimento_Operation">
+      <wsdl:input message="tns:tissSolicitacaoProcedimento_OperationSoapIn" />
+      <wsdl:output message="tns:tissSolicitacaoProcedimento_OperationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tissSolicitacaoProcedimento_Binding" type="tns:tissSolicitacaoProcedimento_Binding">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="tissSolicitacaoProcedimento_Operation">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tissSolicitacaoProcedimento_Binding1" type="tns:tissSolicitacaoProcedimento_Binding">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="tissSolicitacaoProcedimento_Operation">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

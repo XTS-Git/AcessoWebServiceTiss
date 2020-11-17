@@ -8,7 +8,8 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Serialization;
-using AcessoWebService.Localhost5000TissSolicitacaoProcedimento;
+// using AcessoWebService.Localhost5000TissSolicitacaoProcedimento;
+using AcessoWebService.AutorizadorProcedimentos;
 
 namespace AcessoWebService
 {

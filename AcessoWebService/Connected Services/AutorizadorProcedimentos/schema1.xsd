@@ -1,0 +1,2045 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ans.gov.br/padroes/tiss/schemas" elementFormDefault="qualified" targetNamespace="http://www.ans.gov.br/padroes/tiss/schemas" id="schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xs:element name="solicitacaoProcedimentoWS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="cabecalho" type="tns:cabecalhoTransacao" />
+        <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoProcedimento" type="tns:ct_solicitacaoProcedimento" />
+        <xs:element minOccurs="0" maxOccurs="1" name="hash" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Signature" type="tns:Signature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="cabecalhoTransacao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="identificacaoTransacao">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="tipoTransacao" type="tns:dm_tipoTransacao" />
+            <xs:element minOccurs="0" maxOccurs="1" name="sequencialTransacao" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="dataRegistroTransacao" type="xs:date" />
+            <xs:element minOccurs="1" maxOccurs="1" name="horaRegistroTransacao" type="xs:time" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="falhaNegocio" type="tns:dm_tipoGlosa" />
+      <xs:element minOccurs="0" maxOccurs="1" name="origem">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="1">
+              <xs:element minOccurs="0" maxOccurs="1" name="identificacaoPrestador">
+                <xs:complexType>
+                  <xs:complexContent mixed="false">
+                    <xs:extension base="tns:ct_prestadorIdentificacao" />
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="destino">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="1">
+              <xs:element minOccurs="0" maxOccurs="1" name="identificacaoPrestador" type="tns:ct_prestadorIdentificacao" />
+              <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Padrao" type="tns:dm_versao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="loginSenhaPrestador" type="tns:ct_loginSenha" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_tipoTransacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ENVIO_LOTE_GUIAS" />
+      <xs:enumeration value="ENVIO_ANEXO" />
+      <xs:enumeration value="SOLIC_DEMONSTRATIVO_RETORNO" />
+      <xs:enumeration value="SOLIC_STATUS_PROTOCOLO" />
+      <xs:enumeration value="SOLICITACAO_PROCEDIMENTOS" />
+      <xs:enumeration value="SOLICITA_STATUS_AUTORIZACAO" />
+      <xs:enumeration value="VERIFICA_ELEGIBILIDADE" />
+      <xs:enumeration value="CANCELA_GUIA" />
+      <xs:enumeration value="COMUNICACAO_BENEFICIARIO" />
+      <xs:enumeration value="RECURSO_GLOSA" />
+      <xs:enumeration value="SOLIC_STATUS_RECURSO_GLOSA" />
+      <xs:enumeration value="PROTOCOLO_RECEBIMENTO" />
+      <xs:enumeration value="PROTOCOLO_RECEBIMENTO_ANEXO" />
+      <xs:enumeration value="RECEBIMENTO_RECURSO_GLOSA" />
+      <xs:enumeration value="DEMONSTRATIVO_ANALISE_CONTA" />
+      <xs:enumeration value="DEMONSTRATIVO_PAGAMENTO" />
+      <xs:enumeration value="DEMONSTRATIVO_ODONTOLOGIA" />
+      <xs:enumeration value="SITUACAO_PROTOCOLO" />
+      <xs:enumeration value="RESPOSTA_SOLICITACAO" />
+      <xs:enumeration value="AUTORIZACAO_ODONTOLOGIA" />
+      <xs:enumeration value="STATUS_AUTORIZACAO" />
+      <xs:enumeration value="SITUACAO_ELEGIBILIDADE" />
+      <xs:enumeration value="CANCELAMENTO_GUIA_RECIBO" />
+      <xs:enumeration value="RECIBO_COMUNICACAO" />
+      <xs:enumeration value="RESPOSTA_RECURSO_GLOSA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_tipoGlosa">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1001" />
+      <xs:enumeration value="1002" />
+      <xs:enumeration value="1003" />
+      <xs:enumeration value="1004" />
+      <xs:enumeration value="1005" />
+      <xs:enumeration value="1006" />
+      <xs:enumeration value="1007" />
+      <xs:enumeration value="1008" />
+      <xs:enumeration value="1009" />
+      <xs:enumeration value="1010" />
+      <xs:enumeration value="1011" />
+      <xs:enumeration value="1012" />
+      <xs:enumeration value="1013" />
+      <xs:enumeration value="1014" />
+      <xs:enumeration value="1015" />
+      <xs:enumeration value="1016" />
+      <xs:enumeration value="1017" />
+      <xs:enumeration value="1018" />
+      <xs:enumeration value="1019" />
+      <xs:enumeration value="1020" />
+      <xs:enumeration value="1021" />
+      <xs:enumeration value="1022" />
+      <xs:enumeration value="1023" />
+      <xs:enumeration value="1024" />
+      <xs:enumeration value="1025" />
+      <xs:enumeration value="1101" />
+      <xs:enumeration value="1102" />
+      <xs:enumeration value="1103" />
+      <xs:enumeration value="1104" />
+      <xs:enumeration value="1201" />
+      <xs:enumeration value="1202" />
+      <xs:enumeration value="1203" />
+      <xs:enumeration value="1204" />
+      <xs:enumeration value="1205" />
+      <xs:enumeration value="1206" />
+      <xs:enumeration value="1207" />
+      <xs:enumeration value="1208" />
+      <xs:enumeration value="1209" />
+      <xs:enumeration value="1210" />
+      <xs:enumeration value="1211" />
+      <xs:enumeration value="1212" />
+      <xs:enumeration value="1213" />
+      <xs:enumeration value="1214" />
+      <xs:enumeration value="1215" />
+      <xs:enumeration value="1216" />
+      <xs:enumeration value="1217" />
+      <xs:enumeration value="1218" />
+      <xs:enumeration value="1301" />
+      <xs:enumeration value="1302" />
+      <xs:enumeration value="1303" />
+      <xs:enumeration value="1304" />
+      <xs:enumeration value="1305" />
+      <xs:enumeration value="1306" />
+      <xs:enumeration value="1307" />
+      <xs:enumeration value="1308" />
+      <xs:enumeration value="1309" />
+      <xs:enumeration value="1310" />
+      <xs:enumeration value="1311" />
+      <xs:enumeration value="1312" />
+      <xs:enumeration value="1313" />
+      <xs:enumeration value="1314" />
+      <xs:enumeration value="1315" />
+      <xs:enumeration value="1316" />
+      <xs:enumeration value="1317" />
+      <xs:enumeration value="1318" />
+      <xs:enumeration value="1319" />
+      <xs:enumeration value="1320" />
+      <xs:enumeration value="1321" />
+      <xs:enumeration value="1322" />
+      <xs:enumeration value="1323" />
+      <xs:enumeration value="1401" />
+      <xs:enumeration value="1402" />
+      <xs:enumeration value="1403" />
+      <xs:enumeration value="1404" />
+      <xs:enumeration value="1405" />
+      <xs:enumeration value="1406" />
+      <xs:enumeration value="1407" />
+      <xs:enumeration value="1408" />
+      <xs:enumeration value="1409" />
+      <xs:enumeration value="1410" />
+      <xs:enumeration value="1411" />
+      <xs:enumeration value="1412" />
+      <xs:enumeration value="1413" />
+      <xs:enumeration value="1414" />
+      <xs:enumeration value="1415" />
+      <xs:enumeration value="1416" />
+      <xs:enumeration value="1417" />
+      <xs:enumeration value="1418" />
+      <xs:enumeration value="1419" />
+      <xs:enumeration value="1420" />
+      <xs:enumeration value="1421" />
+      <xs:enumeration value="1422" />
+      <xs:enumeration value="1423" />
+      <xs:enumeration value="1424" />
+      <xs:enumeration value="1425" />
+      <xs:enumeration value="1426" />
+      <xs:enumeration value="1427" />
+      <xs:enumeration value="1428" />
+      <xs:enumeration value="1429" />
+      <xs:enumeration value="1430" />
+      <xs:enumeration value="1431" />
+      <xs:enumeration value="1432" />
+      <xs:enumeration value="1433" />
+      <xs:enumeration value="1434" />
+      <xs:enumeration value="1435" />
+      <xs:enumeration value="1436" />
+      <xs:enumeration value="1437" />
+      <xs:enumeration value="1438" />
+      <xs:enumeration value="1501" />
+      <xs:enumeration value="1502" />
+      <xs:enumeration value="1503" />
+      <xs:enumeration value="1504" />
+      <xs:enumeration value="1505" />
+      <xs:enumeration value="1506" />
+      <xs:enumeration value="1507" />
+      <xs:enumeration value="1508" />
+      <xs:enumeration value="1509" />
+      <xs:enumeration value="1601" />
+      <xs:enumeration value="1602" />
+      <xs:enumeration value="1603" />
+      <xs:enumeration value="1604" />
+      <xs:enumeration value="1605" />
+      <xs:enumeration value="1606" />
+      <xs:enumeration value="1607" />
+      <xs:enumeration value="1608" />
+      <xs:enumeration value="1609" />
+      <xs:enumeration value="1610" />
+      <xs:enumeration value="1611" />
+      <xs:enumeration value="1612" />
+      <xs:enumeration value="1613" />
+      <xs:enumeration value="1614" />
+      <xs:enumeration value="1615" />
+      <xs:enumeration value="1701" />
+      <xs:enumeration value="1702" />
+      <xs:enumeration value="1703" />
+      <xs:enumeration value="1704" />
+      <xs:enumeration value="1705" />
+      <xs:enumeration value="1706" />
+      <xs:enumeration value="1707" />
+      <xs:enumeration value="1708" />
+      <xs:enumeration value="1709" />
+      <xs:enumeration value="1710" />
+      <xs:enumeration value="1711" />
+      <xs:enumeration value="1712" />
+      <xs:enumeration value="1713" />
+      <xs:enumeration value="1714" />
+      <xs:enumeration value="1715" />
+      <xs:enumeration value="1716" />
+      <xs:enumeration value="1717" />
+      <xs:enumeration value="1718" />
+      <xs:enumeration value="1719" />
+      <xs:enumeration value="1720" />
+      <xs:enumeration value="1721" />
+      <xs:enumeration value="1722" />
+      <xs:enumeration value="1723" />
+      <xs:enumeration value="1724" />
+      <xs:enumeration value="1725" />
+      <xs:enumeration value="1726" />
+      <xs:enumeration value="1727" />
+      <xs:enumeration value="1728" />
+      <xs:enumeration value="1729" />
+      <xs:enumeration value="1730" />
+      <xs:enumeration value="1731" />
+      <xs:enumeration value="1732" />
+      <xs:enumeration value="1733" />
+      <xs:enumeration value="1734" />
+      <xs:enumeration value="1735" />
+      <xs:enumeration value="1736" />
+      <xs:enumeration value="1737" />
+      <xs:enumeration value="1738" />
+      <xs:enumeration value="1739" />
+      <xs:enumeration value="1740" />
+      <xs:enumeration value="1741" />
+      <xs:enumeration value="1742" />
+      <xs:enumeration value="1743" />
+      <xs:enumeration value="1744" />
+      <xs:enumeration value="1745" />
+      <xs:enumeration value="1746" />
+      <xs:enumeration value="1747" />
+      <xs:enumeration value="1748" />
+      <xs:enumeration value="1749" />
+      <xs:enumeration value="1801" />
+      <xs:enumeration value="1802" />
+      <xs:enumeration value="1803" />
+      <xs:enumeration value="1804" />
+      <xs:enumeration value="1805" />
+      <xs:enumeration value="1806" />
+      <xs:enumeration value="1807" />
+      <xs:enumeration value="1808" />
+      <xs:enumeration value="1809" />
+      <xs:enumeration value="1810" />
+      <xs:enumeration value="1811" />
+      <xs:enumeration value="1812" />
+      <xs:enumeration value="1813" />
+      <xs:enumeration value="1814" />
+      <xs:enumeration value="1815" />
+      <xs:enumeration value="1816" />
+      <xs:enumeration value="1817" />
+      <xs:enumeration value="1818" />
+      <xs:enumeration value="1819" />
+      <xs:enumeration value="1820" />
+      <xs:enumeration value="1821" />
+      <xs:enumeration value="1822" />
+      <xs:enumeration value="1823" />
+      <xs:enumeration value="1824" />
+      <xs:enumeration value="1825" />
+      <xs:enumeration value="1826" />
+      <xs:enumeration value="1827" />
+      <xs:enumeration value="1828" />
+      <xs:enumeration value="1829" />
+      <xs:enumeration value="1830" />
+      <xs:enumeration value="1831" />
+      <xs:enumeration value="1832" />
+      <xs:enumeration value="1833" />
+      <xs:enumeration value="1834" />
+      <xs:enumeration value="1835" />
+      <xs:enumeration value="1836" />
+      <xs:enumeration value="1837" />
+      <xs:enumeration value="1838" />
+      <xs:enumeration value="1839" />
+      <xs:enumeration value="1840" />
+      <xs:enumeration value="1901" />
+      <xs:enumeration value="1902" />
+      <xs:enumeration value="1903" />
+      <xs:enumeration value="1904" />
+      <xs:enumeration value="1905" />
+      <xs:enumeration value="1906" />
+      <xs:enumeration value="1907" />
+      <xs:enumeration value="1908" />
+      <xs:enumeration value="1909" />
+      <xs:enumeration value="1910" />
+      <xs:enumeration value="1911" />
+      <xs:enumeration value="1912" />
+      <xs:enumeration value="1913" />
+      <xs:enumeration value="1914" />
+      <xs:enumeration value="1915" />
+      <xs:enumeration value="1916" />
+      <xs:enumeration value="1917" />
+      <xs:enumeration value="1918" />
+      <xs:enumeration value="2001" />
+      <xs:enumeration value="2002" />
+      <xs:enumeration value="2003" />
+      <xs:enumeration value="2004" />
+      <xs:enumeration value="2005" />
+      <xs:enumeration value="2006" />
+      <xs:enumeration value="2007" />
+      <xs:enumeration value="2008" />
+      <xs:enumeration value="2009" />
+      <xs:enumeration value="2010" />
+      <xs:enumeration value="2011" />
+      <xs:enumeration value="2012" />
+      <xs:enumeration value="2013" />
+      <xs:enumeration value="2014" />
+      <xs:enumeration value="2015" />
+      <xs:enumeration value="2101" />
+      <xs:enumeration value="2102" />
+      <xs:enumeration value="2103" />
+      <xs:enumeration value="2104" />
+      <xs:enumeration value="2105" />
+      <xs:enumeration value="2106" />
+      <xs:enumeration value="2107" />
+      <xs:enumeration value="2108" />
+      <xs:enumeration value="2109" />
+      <xs:enumeration value="2110" />
+      <xs:enumeration value="2111" />
+      <xs:enumeration value="2112" />
+      <xs:enumeration value="2113" />
+      <xs:enumeration value="2114" />
+      <xs:enumeration value="2115" />
+      <xs:enumeration value="2201" />
+      <xs:enumeration value="2202" />
+      <xs:enumeration value="2203" />
+      <xs:enumeration value="2204" />
+      <xs:enumeration value="2205" />
+      <xs:enumeration value="2206" />
+      <xs:enumeration value="2207" />
+      <xs:enumeration value="2208" />
+      <xs:enumeration value="2209" />
+      <xs:enumeration value="2210" />
+      <xs:enumeration value="2211" />
+      <xs:enumeration value="2212" />
+      <xs:enumeration value="2213" />
+      <xs:enumeration value="2301" />
+      <xs:enumeration value="2302" />
+      <xs:enumeration value="2303" />
+      <xs:enumeration value="2304" />
+      <xs:enumeration value="2305" />
+      <xs:enumeration value="2306" />
+      <xs:enumeration value="2307" />
+      <xs:enumeration value="2308" />
+      <xs:enumeration value="2309" />
+      <xs:enumeration value="2310" />
+      <xs:enumeration value="2401" />
+      <xs:enumeration value="2402" />
+      <xs:enumeration value="2403" />
+      <xs:enumeration value="2404" />
+      <xs:enumeration value="2405" />
+      <xs:enumeration value="2406" />
+      <xs:enumeration value="2407" />
+      <xs:enumeration value="2408" />
+      <xs:enumeration value="2409" />
+      <xs:enumeration value="2410" />
+      <xs:enumeration value="2411" />
+      <xs:enumeration value="2412" />
+      <xs:enumeration value="2413" />
+      <xs:enumeration value="2414" />
+      <xs:enumeration value="2415" />
+      <xs:enumeration value="2416" />
+      <xs:enumeration value="2417" />
+      <xs:enumeration value="2418" />
+      <xs:enumeration value="2419" />
+      <xs:enumeration value="2420" />
+      <xs:enumeration value="2421" />
+      <xs:enumeration value="2422" />
+      <xs:enumeration value="2423" />
+      <xs:enumeration value="2424" />
+      <xs:enumeration value="2501" />
+      <xs:enumeration value="2502" />
+      <xs:enumeration value="2503" />
+      <xs:enumeration value="2504" />
+      <xs:enumeration value="2505" />
+      <xs:enumeration value="2506" />
+      <xs:enumeration value="2507" />
+      <xs:enumeration value="2508" />
+      <xs:enumeration value="2509" />
+      <xs:enumeration value="2510" />
+      <xs:enumeration value="2511" />
+      <xs:enumeration value="2512" />
+      <xs:enumeration value="2513" />
+      <xs:enumeration value="2514" />
+      <xs:enumeration value="2515" />
+      <xs:enumeration value="2516" />
+      <xs:enumeration value="2601" />
+      <xs:enumeration value="2602" />
+      <xs:enumeration value="2603" />
+      <xs:enumeration value="2604" />
+      <xs:enumeration value="2605" />
+      <xs:enumeration value="2606" />
+      <xs:enumeration value="2607" />
+      <xs:enumeration value="2608" />
+      <xs:enumeration value="2609" />
+      <xs:enumeration value="2610" />
+      <xs:enumeration value="2611" />
+      <xs:enumeration value="2612" />
+      <xs:enumeration value="2613" />
+      <xs:enumeration value="2614" />
+      <xs:enumeration value="2701" />
+      <xs:enumeration value="2702" />
+      <xs:enumeration value="2703" />
+      <xs:enumeration value="2704" />
+      <xs:enumeration value="2705" />
+      <xs:enumeration value="2706" />
+      <xs:enumeration value="2707" />
+      <xs:enumeration value="2708" />
+      <xs:enumeration value="2709" />
+      <xs:enumeration value="2710" />
+      <xs:enumeration value="2711" />
+      <xs:enumeration value="2712" />
+      <xs:enumeration value="2713" />
+      <xs:enumeration value="2714" />
+      <xs:enumeration value="2715" />
+      <xs:enumeration value="2716" />
+      <xs:enumeration value="2717" />
+      <xs:enumeration value="2718" />
+      <xs:enumeration value="2801" />
+      <xs:enumeration value="2802" />
+      <xs:enumeration value="2803" />
+      <xs:enumeration value="2804" />
+      <xs:enumeration value="2805" />
+      <xs:enumeration value="2806" />
+      <xs:enumeration value="2807" />
+      <xs:enumeration value="2808" />
+      <xs:enumeration value="2809" />
+      <xs:enumeration value="2810" />
+      <xs:enumeration value="2811" />
+      <xs:enumeration value="2812" />
+      <xs:enumeration value="2813" />
+      <xs:enumeration value="2814" />
+      <xs:enumeration value="2815" />
+      <xs:enumeration value="2816" />
+      <xs:enumeration value="2817" />
+      <xs:enumeration value="2818" />
+      <xs:enumeration value="2819" />
+      <xs:enumeration value="2820" />
+      <xs:enumeration value="2821" />
+      <xs:enumeration value="2822" />
+      <xs:enumeration value="2901" />
+      <xs:enumeration value="2902" />
+      <xs:enumeration value="2903" />
+      <xs:enumeration value="2904" />
+      <xs:enumeration value="2905" />
+      <xs:enumeration value="2906" />
+      <xs:enumeration value="2907" />
+      <xs:enumeration value="2908" />
+      <xs:enumeration value="2909" />
+      <xs:enumeration value="3001" />
+      <xs:enumeration value="3002" />
+      <xs:enumeration value="3003" />
+      <xs:enumeration value="3004" />
+      <xs:enumeration value="3005" />
+      <xs:enumeration value="3006" />
+      <xs:enumeration value="3007" />
+      <xs:enumeration value="3008" />
+      <xs:enumeration value="3009" />
+      <xs:enumeration value="3010" />
+      <xs:enumeration value="3011" />
+      <xs:enumeration value="3012" />
+      <xs:enumeration value="3013" />
+      <xs:enumeration value="3014" />
+      <xs:enumeration value="3015" />
+      <xs:enumeration value="3016" />
+      <xs:enumeration value="3017" />
+      <xs:enumeration value="3018" />
+      <xs:enumeration value="3019" />
+      <xs:enumeration value="3020" />
+      <xs:enumeration value="3021" />
+      <xs:enumeration value="3022" />
+      <xs:enumeration value="3023" />
+      <xs:enumeration value="3024" />
+      <xs:enumeration value="3025" />
+      <xs:enumeration value="3026" />
+      <xs:enumeration value="3027" />
+      <xs:enumeration value="3028" />
+      <xs:enumeration value="3029" />
+      <xs:enumeration value="3030" />
+      <xs:enumeration value="3031" />
+      <xs:enumeration value="3032" />
+      <xs:enumeration value="3033" />
+      <xs:enumeration value="3034" />
+      <xs:enumeration value="3035" />
+      <xs:enumeration value="3036" />
+      <xs:enumeration value="3037" />
+      <xs:enumeration value="3038" />
+      <xs:enumeration value="3039" />
+      <xs:enumeration value="3040" />
+      <xs:enumeration value="3041" />
+      <xs:enumeration value="3042" />
+      <xs:enumeration value="3043" />
+      <xs:enumeration value="3044" />
+      <xs:enumeration value="3045" />
+      <xs:enumeration value="3046" />
+      <xs:enumeration value="3047" />
+      <xs:enumeration value="3048" />
+      <xs:enumeration value="3049" />
+      <xs:enumeration value="3050" />
+      <xs:enumeration value="3051" />
+      <xs:enumeration value="3052" />
+      <xs:enumeration value="3053" />
+      <xs:enumeration value="3054" />
+      <xs:enumeration value="3055" />
+      <xs:enumeration value="3056" />
+      <xs:enumeration value="3057" />
+      <xs:enumeration value="3058" />
+      <xs:enumeration value="3059" />
+      <xs:enumeration value="3060" />
+      <xs:enumeration value="3061" />
+      <xs:enumeration value="3062" />
+      <xs:enumeration value="3063" />
+      <xs:enumeration value="3064" />
+      <xs:enumeration value="3065" />
+      <xs:enumeration value="3066" />
+      <xs:enumeration value="3067" />
+      <xs:enumeration value="3068" />
+      <xs:enumeration value="3069" />
+      <xs:enumeration value="3070" />
+      <xs:enumeration value="3071" />
+      <xs:enumeration value="3072" />
+      <xs:enumeration value="3073" />
+      <xs:enumeration value="3074" />
+      <xs:enumeration value="3075" />
+      <xs:enumeration value="3076" />
+      <xs:enumeration value="3077" />
+      <xs:enumeration value="3078" />
+      <xs:enumeration value="3079" />
+      <xs:enumeration value="3080" />
+      <xs:enumeration value="3081" />
+      <xs:enumeration value="3082" />
+      <xs:enumeration value="3083" />
+      <xs:enumeration value="3084" />
+      <xs:enumeration value="3085" />
+      <xs:enumeration value="3086" />
+      <xs:enumeration value="3087" />
+      <xs:enumeration value="3088" />
+      <xs:enumeration value="3089" />
+      <xs:enumeration value="3090" />
+      <xs:enumeration value="3091" />
+      <xs:enumeration value="3092" />
+      <xs:enumeration value="3093" />
+      <xs:enumeration value="3094" />
+      <xs:enumeration value="3095" />
+      <xs:enumeration value="3096" />
+      <xs:enumeration value="3097" />
+      <xs:enumeration value="3098" />
+      <xs:enumeration value="3100" />
+      <xs:enumeration value="3101" />
+      <xs:enumeration value="3102" />
+      <xs:enumeration value="3103" />
+      <xs:enumeration value="3104" />
+      <xs:enumeration value="3105" />
+      <xs:enumeration value="3106" />
+      <xs:enumeration value="3107" />
+      <xs:enumeration value="3108" />
+      <xs:enumeration value="3109" />
+      <xs:enumeration value="3110" />
+      <xs:enumeration value="3111" />
+      <xs:enumeration value="3112" />
+      <xs:enumeration value="3113" />
+      <xs:enumeration value="3114" />
+      <xs:enumeration value="3115" />
+      <xs:enumeration value="3116" />
+      <xs:enumeration value="3117" />
+      <xs:enumeration value="3118" />
+      <xs:enumeration value="3119" />
+      <xs:enumeration value="3120" />
+      <xs:enumeration value="3121" />
+      <xs:enumeration value="3122" />
+      <xs:enumeration value="3123" />
+      <xs:enumeration value="3124" />
+      <xs:enumeration value="3125" />
+      <xs:enumeration value="3126" />
+      <xs:enumeration value="3127" />
+      <xs:enumeration value="3128" />
+      <xs:enumeration value="3129" />
+      <xs:enumeration value="3130" />
+      <xs:enumeration value="3131" />
+      <xs:enumeration value="3132" />
+      <xs:enumeration value="3133" />
+      <xs:enumeration value="3134" />
+      <xs:enumeration value="3135" />
+      <xs:enumeration value="3136" />
+      <xs:enumeration value="3137" />
+      <xs:enumeration value="3138" />
+      <xs:enumeration value="3139" />
+      <xs:enumeration value="3140" />
+      <xs:enumeration value="3141" />
+      <xs:enumeration value="3142" />
+      <xs:enumeration value="3143" />
+      <xs:enumeration value="3144" />
+      <xs:enumeration value="3145" />
+      <xs:enumeration value="3146" />
+      <xs:enumeration value="3147" />
+      <xs:enumeration value="3148" />
+      <xs:enumeration value="3149" />
+      <xs:enumeration value="3150" />
+      <xs:enumeration value="3151" />
+      <xs:enumeration value="3152" />
+      <xs:enumeration value="3153" />
+      <xs:enumeration value="3154" />
+      <xs:enumeration value="3155" />
+      <xs:enumeration value="5001" />
+      <xs:enumeration value="5002" />
+      <xs:enumeration value="5003" />
+      <xs:enumeration value="5004" />
+      <xs:enumeration value="5005" />
+      <xs:enumeration value="5006" />
+      <xs:enumeration value="5007" />
+      <xs:enumeration value="5008" />
+      <xs:enumeration value="5009" />
+      <xs:enumeration value="5010" />
+      <xs:enumeration value="5011" />
+      <xs:enumeration value="5012" />
+      <xs:enumeration value="5013" />
+      <xs:enumeration value="5014" />
+      <xs:enumeration value="5015" />
+      <xs:enumeration value="5016" />
+      <xs:enumeration value="5017" />
+      <xs:enumeration value="5018" />
+      <xs:enumeration value="5019" />
+      <xs:enumeration value="5020" />
+      <xs:enumeration value="5021" />
+      <xs:enumeration value="5022" />
+      <xs:enumeration value="5023" />
+      <xs:enumeration value="5024" />
+      <xs:enumeration value="5025" />
+      <xs:enumeration value="5026" />
+      <xs:enumeration value="5027" />
+      <xs:enumeration value="5028" />
+      <xs:enumeration value="5029" />
+      <xs:enumeration value="5030" />
+      <xs:enumeration value="5031" />
+      <xs:enumeration value="5032" />
+      <xs:enumeration value="5033" />
+      <xs:enumeration value="5034" />
+      <xs:enumeration value="5035" />
+      <xs:enumeration value="5036" />
+      <xs:enumeration value="5037" />
+      <xs:enumeration value="5038" />
+      <xs:enumeration value="5039" />
+      <xs:enumeration value="5040" />
+      <xs:enumeration value="5041" />
+      <xs:enumeration value="5042" />
+      <xs:enumeration value="5043" />
+      <xs:enumeration value="5044" />
+      <xs:enumeration value="5045" />
+      <xs:enumeration value="5046" />
+      <xs:enumeration value="5047" />
+      <xs:enumeration value="5048" />
+      <xs:enumeration value="5049" />
+      <xs:enumeration value="5050" />
+      <xs:enumeration value="5051" />
+      <xs:enumeration value="5052" />
+      <xs:enumeration value="5053" />
+      <xs:enumeration value="5054" />
+      <xs:enumeration value="5055" />
+      <xs:enumeration value="5056" />
+      <xs:enumeration value="5057" />
+      <xs:enumeration value="5058" />
+      <xs:enumeration value="5059" />
+      <xs:enumeration value="5060" />
+      <xs:enumeration value="5061" />
+      <xs:enumeration value="5062" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ct_prestadorIdentificacao">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="CNPJ" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="CPF" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="codigoPrestadorNaOperadora" type="xs:string" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_versao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="3.03.01" />
+      <xs:enumeration value="3.03.02" />
+      <xs:enumeration value="3.03.03" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ct_loginSenha">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="loginPrestador" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="senhaPrestador" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_solicitacaoProcedimento">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ctm_solicitacaoLote" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ctm_solicitacaoLote">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoInternacao" type="tns:ctm_internacaoSolicitacaoGuia" />
+        <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoOdontologia" type="tns:cto_odontoSolicitacaoGuia" />
+        <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoProrrogacao" type="tns:ctm_prorrogacaoSolicitacaoGuia" />
+        <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoSP-SADT" type="tns:ctm_sp-sadtSolicitacaoGuia" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ctm_internacaoSolicitacaoGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaPrestador" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosBeneficiario" type="tns:ct_beneficiarioDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="identificacaoSolicitante">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="dadosDoContratado" type="tns:ct_contratadoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="dadosProfissionalContratado" type="tns:ct_contratadoProfissionalDados" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosHospitalSolicitado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="codigoIndicadonaOperadora" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="nomeContratadoIndicado" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="dataSugeridaInternacao" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosInternacao">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="caraterAtendimento" type="tns:dm_caraterAtendimento" />
+            <xs:element minOccurs="1" maxOccurs="1" name="tipoInternacao" type="tns:dm_tipoInternacao" />
+            <xs:element minOccurs="1" maxOccurs="1" name="regimeInternacao" type="tns:dm_regimeInternacao" />
+            <xs:element minOccurs="0" maxOccurs="1" name="qtDiariasSolicitadas" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="indicadorOPME" type="tns:dm_simNao" />
+            <xs:element minOccurs="1" maxOccurs="1" name="indicadorQuimio" type="tns:dm_simNao" />
+            <xs:element minOccurs="0" maxOccurs="1" name="indicacaoClinica" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="hipotesesDiagnosticas">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="diagnosticoCID" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="indicadorAcidente" type="tns:dm_indicadorAcidente" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="procedimentosSolicitados">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="procedimento" type="tns:ct_procedimentoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="quantidadeSolicitada" type="xs:integer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="dataSolicitacao" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="anexoClinico">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoQuimioterapia" type="tns:ctm_anexoSolicitacaoQuimio" />
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoRadioterapia" type="tns:ctm_anexoSolicitacaoRadio" />
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoOPME" type="tns:ctm_anexoSolicitacaoOPME" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_beneficiarioDados">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCarteira" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="atendimentoRN" type="tns:dm_simNao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCNS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="identificadorBeneficiario" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_simNao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="S" />
+      <xs:enumeration value="N" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ct_contratadoDados">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="cnpjContratado" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="codigoPrestadorNaOperadora" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="cpfContratado" type="xs:string" />
+      </xs:choice>
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeContratado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_contratadoProfissionalDados">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeProfissional" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="conselhoProfissional" type="tns:dm_conselhoProfissional" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroConselhoProfissional" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UF" type="tns:dm_UF" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CBOS" type="tns:dm_CBOS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_conselhoProfissional">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="01" />
+      <xs:enumeration value="02" />
+      <xs:enumeration value="03" />
+      <xs:enumeration value="04" />
+      <xs:enumeration value="05" />
+      <xs:enumeration value="06" />
+      <xs:enumeration value="07" />
+      <xs:enumeration value="08" />
+      <xs:enumeration value="09" />
+      <xs:enumeration value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_UF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="11" />
+      <xs:enumeration value="12" />
+      <xs:enumeration value="13" />
+      <xs:enumeration value="14" />
+      <xs:enumeration value="15" />
+      <xs:enumeration value="16" />
+      <xs:enumeration value="17" />
+      <xs:enumeration value="21" />
+      <xs:enumeration value="22" />
+      <xs:enumeration value="23" />
+      <xs:enumeration value="24" />
+      <xs:enumeration value="25" />
+      <xs:enumeration value="26" />
+      <xs:enumeration value="27" />
+      <xs:enumeration value="28" />
+      <xs:enumeration value="29" />
+      <xs:enumeration value="31" />
+      <xs:enumeration value="32" />
+      <xs:enumeration value="33" />
+      <xs:enumeration value="35" />
+      <xs:enumeration value="41" />
+      <xs:enumeration value="42" />
+      <xs:enumeration value="43" />
+      <xs:enumeration value="50" />
+      <xs:enumeration value="51" />
+      <xs:enumeration value="52" />
+      <xs:enumeration value="53" />
+      <xs:enumeration value="98" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_CBOS">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="201115" />
+      <xs:enumeration value="203015" />
+      <xs:enumeration value="213150" />
+      <xs:enumeration value="225105" />
+      <xs:enumeration value="225110" />
+      <xs:enumeration value="225148" />
+      <xs:enumeration value="225185" />
+      <xs:enumeration value="225115" />
+      <xs:enumeration value="225120" />
+      <xs:enumeration value="225210" />
+      <xs:enumeration value="225215" />
+      <xs:enumeration value="225220" />
+      <xs:enumeration value="225225" />
+      <xs:enumeration value="225230" />
+      <xs:enumeration value="225235" />
+      <xs:enumeration value="225240" />
+      <xs:enumeration value="225305" />
+      <xs:enumeration value="225350" />
+      <xs:enumeration value="225125" />
+      <xs:enumeration value="225130" />
+      <xs:enumeration value="225135" />
+      <xs:enumeration value="225140" />
+      <xs:enumeration value="225310" />
+      <xs:enumeration value="225145" />
+      <xs:enumeration value="225150" />
+      <xs:enumeration value="225315" />
+      <xs:enumeration value="225320" />
+      <xs:enumeration value="225155" />
+      <xs:enumeration value="225160" />
+      <xs:enumeration value="225245" />
+      <xs:enumeration value="225165" />
+      <xs:enumeration value="225170" />
+      <xs:enumeration value="225175" />
+      <xs:enumeration value="225180" />
+      <xs:enumeration value="225250" />
+      <xs:enumeration value="225190" />
+      <xs:enumeration value="225195" />
+      <xs:enumeration value="225103" />
+      <xs:enumeration value="225106" />
+      <xs:enumeration value="225255" />
+      <xs:enumeration value="225109" />
+      <xs:enumeration value="225260" />
+      <xs:enumeration value="225112" />
+      <xs:enumeration value="225118" />
+      <xs:enumeration value="225265" />
+      <xs:enumeration value="225121" />
+      <xs:enumeration value="225270" />
+      <xs:enumeration value="225275" />
+      <xs:enumeration value="225325" />
+      <xs:enumeration value="225124" />
+      <xs:enumeration value="225127" />
+      <xs:enumeration value="225280" />
+      <xs:enumeration value="225133" />
+      <xs:enumeration value="225330" />
+      <xs:enumeration value="225136" />
+      <xs:enumeration value="225139" />
+      <xs:enumeration value="225285" />
+      <xs:enumeration value="223204" />
+      <xs:enumeration value="223208" />
+      <xs:enumeration value="223212" />
+      <xs:enumeration value="223216" />
+      <xs:enumeration value="223220" />
+      <xs:enumeration value="223224" />
+      <xs:enumeration value="223228" />
+      <xs:enumeration value="223232" />
+      <xs:enumeration value="223236" />
+      <xs:enumeration value="223240" />
+      <xs:enumeration value="223244" />
+      <xs:enumeration value="223248" />
+      <xs:enumeration value="223252" />
+      <xs:enumeration value="223256" />
+      <xs:enumeration value="223260" />
+      <xs:enumeration value="223264" />
+      <xs:enumeration value="223268" />
+      <xs:enumeration value="223272" />
+      <xs:enumeration value="223505" />
+      <xs:enumeration value="223605" />
+      <xs:enumeration value="223910" />
+      <xs:enumeration value="223905" />
+      <xs:enumeration value="223710" />
+      <xs:enumeration value="223810" />
+      <xs:enumeration value="239425" />
+      <xs:enumeration value="251510" />
+      <xs:enumeration value="251545" />
+      <xs:enumeration value="251550" />
+      <xs:enumeration value="251605" />
+      <xs:enumeration value="322205" />
+      <xs:enumeration value="322220" />
+      <xs:enumeration value="322225" />
+      <xs:enumeration value="322230" />
+      <xs:enumeration value="516210" />
+      <xs:enumeration value="225121" />
+      <xs:enumeration value="225325" />
+      <xs:enumeration value="223276" />
+      <xs:enumeration value="223280" />
+      <xs:enumeration value="223284" />
+      <xs:enumeration value="223288" />
+      <xs:enumeration value="223293" />
+      <xs:enumeration value="225122" />
+      <xs:enumeration value="225142" />
+      <xs:enumeration value="225151" />
+      <xs:enumeration value="225203" />
+      <xs:enumeration value="225290" />
+      <xs:enumeration value="225295" />
+      <xs:enumeration value="225335" />
+      <xs:enumeration value="225340" />
+      <xs:enumeration value="225345" />
+      <xs:enumeration value="223625" />
+      <xs:enumeration value="223630" />
+      <xs:enumeration value="223635" />
+      <xs:enumeration value="223640" />
+      <xs:enumeration value="223645" />
+      <xs:enumeration value="223650" />
+      <xs:enumeration value="223655" />
+      <xs:enumeration value="223660" />
+      <xs:enumeration value="223435" />
+      <xs:enumeration value="223430" />
+      <xs:enumeration value="223415" />
+      <xs:enumeration value="223405" />
+      <xs:enumeration value="223420" />
+      <xs:enumeration value="223440" />
+      <xs:enumeration value="223445" />
+      <xs:enumeration value="223425" />
+      <xs:enumeration value="223565" />
+      <xs:enumeration value="223560" />
+      <xs:enumeration value="223555" />
+      <xs:enumeration value="223550" />
+      <xs:enumeration value="223545" />
+      <xs:enumeration value="223540" />
+      <xs:enumeration value="223535" />
+      <xs:enumeration value="223530" />
+      <xs:enumeration value="223525" />
+      <xs:enumeration value="223520" />
+      <xs:enumeration value="223515" />
+      <xs:enumeration value="223510" />
+      <xs:enumeration value="223570" />
+      <xs:enumeration value="223705" />
+      <xs:enumeration value="223845" />
+      <xs:enumeration value="223830" />
+      <xs:enumeration value="223825" />
+      <xs:enumeration value="223835" />
+      <xs:enumeration value="223840" />
+      <xs:enumeration value="223820" />
+      <xs:enumeration value="223815" />
+      <xs:enumeration value="225154" />
+      <xs:enumeration value="221105" />
+      <xs:enumeration value="999999" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_caraterAtendimento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_tipoInternacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_regimeInternacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_indicadorAcidente">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ct_procedimentoDados">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="codigoTabela" type="tns:dm_tabela" />
+      <xs:element minOccurs="0" maxOccurs="1" name="codigoProcedimento" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="descricaoProcedimento" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_tabela">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="18" />
+      <xs:enumeration value="19" />
+      <xs:enumeration value="20" />
+      <xs:enumeration value="22" />
+      <xs:enumeration value="90" />
+      <xs:enumeration value="98" />
+      <xs:enumeration value="00" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ctm_anexoSolicitacaoQuimio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="cabecalhoAnexo" type="tns:ct_anexoCabecalho" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosBeneficiario" type="tns:ct_beneficiarioDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosComplementaresBeneficiario" type="tns:ct_dadosComplementaresBeneficiario" />
+      <xs:element minOccurs="0" maxOccurs="1" name="medicoSolicitante" type="tns:ctm_anexoSolicitante" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diagnosticoOncologicoQuimioterapia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="diagQuimio" type="tns:ct_diagnosticoOncologico" />
+            <xs:element minOccurs="1" maxOccurs="1" name="tumor" type="tns:dm_tumor" />
+            <xs:element minOccurs="1" maxOccurs="1" name="nodulo" type="tns:dm_nodulo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="metastase" type="tns:dm_metastase" />
+            <xs:element minOccurs="1" maxOccurs="1" name="tipoQuimioterapia" type="tns:dm_tipoQuimioterapia" />
+            <xs:element minOccurs="0" maxOccurs="1" name="planoTerapeutico" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="drogasSolicitadas" type="tns:ArrayOfCt_drogasSolicitadas" />
+      <xs:element minOccurs="0" maxOccurs="1" name="tratamentosAnteriores">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="cirurgia" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="datacirurgia" type="xs:date" />
+            <xs:element minOccurs="0" maxOccurs="1" name="areaIrradiada" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="dataIrradiacao" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCiclos" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="cicloAtual" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diasCicloAtual" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="intervaloCiclos" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_anexoCabecalho">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaAnexo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaReferenciada" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaOperadora" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dataSolicitacao" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="senha" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dataAutorizacao" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_dadosComplementaresBeneficiario">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="altura" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="superficieCorporal" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="idade" type="xs:integer" />
+      <xs:element minOccurs="1" maxOccurs="1" name="sexo" type="tns:dm_sexo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_sexo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ctm_anexoSolicitante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeProfissional" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="telefoneProfissional" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="emailProfissional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_diagnosticoOncologico">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="dataDiagnostico" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="diagnosticoCID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="estadiamento" type="tns:dm_estadiamento" />
+      <xs:element minOccurs="1" maxOccurs="1" name="finalidade" type="tns:dm_finalidadeTratamento" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ecog" type="tns:dm_ecog" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diagnosticoHispatologico" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="infoRelevantes" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_estadiamento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_finalidadeTratamento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_ecog">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_tumor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="6" />
+      <xs:enumeration value="7" />
+      <xs:enumeration value="8" />
+      <xs:enumeration value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_nodulo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="8" />
+      <xs:enumeration value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_metastase">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="8" />
+      <xs:enumeration value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_tipoQuimioterapia">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfCt_drogasSolicitadas">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="drogaSolicitada" type="tns:ct_drogasSolicitadas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_drogasSolicitadas">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="dataProvavel" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="identificacao" type="tns:ct_procedimentoDados" />
+      <xs:element minOccurs="1" maxOccurs="1" name="qtDoses" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="unidadeMedida" type="tns:dm_unidadeMedida" />
+      <xs:element minOccurs="1" maxOccurs="1" name="viaAdministracao" type="tns:dm_viaAdministracao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="frequencia" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_unidadeMedida">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="001" />
+      <xs:enumeration value="002" />
+      <xs:enumeration value="003" />
+      <xs:enumeration value="004" />
+      <xs:enumeration value="005" />
+      <xs:enumeration value="006" />
+      <xs:enumeration value="007" />
+      <xs:enumeration value="008" />
+      <xs:enumeration value="009" />
+      <xs:enumeration value="010" />
+      <xs:enumeration value="011" />
+      <xs:enumeration value="012" />
+      <xs:enumeration value="013" />
+      <xs:enumeration value="014" />
+      <xs:enumeration value="015" />
+      <xs:enumeration value="016" />
+      <xs:enumeration value="017" />
+      <xs:enumeration value="018" />
+      <xs:enumeration value="019" />
+      <xs:enumeration value="020" />
+      <xs:enumeration value="021" />
+      <xs:enumeration value="022" />
+      <xs:enumeration value="023" />
+      <xs:enumeration value="024" />
+      <xs:enumeration value="025" />
+      <xs:enumeration value="026" />
+      <xs:enumeration value="027" />
+      <xs:enumeration value="028" />
+      <xs:enumeration value="029" />
+      <xs:enumeration value="030" />
+      <xs:enumeration value="031" />
+      <xs:enumeration value="032" />
+      <xs:enumeration value="033" />
+      <xs:enumeration value="034" />
+      <xs:enumeration value="035" />
+      <xs:enumeration value="036" />
+      <xs:enumeration value="037" />
+      <xs:enumeration value="038" />
+      <xs:enumeration value="039" />
+      <xs:enumeration value="040" />
+      <xs:enumeration value="041" />
+      <xs:enumeration value="042" />
+      <xs:enumeration value="043" />
+      <xs:enumeration value="044" />
+      <xs:enumeration value="045" />
+      <xs:enumeration value="046" />
+      <xs:enumeration value="047" />
+      <xs:enumeration value="048" />
+      <xs:enumeration value="049" />
+      <xs:enumeration value="050" />
+      <xs:enumeration value="051" />
+      <xs:enumeration value="052" />
+      <xs:enumeration value="053" />
+      <xs:enumeration value="054" />
+      <xs:enumeration value="055" />
+      <xs:enumeration value="056" />
+      <xs:enumeration value="057" />
+      <xs:enumeration value="058" />
+      <xs:enumeration value="059" />
+      <xs:enumeration value="060" />
+      <xs:enumeration value="061" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_viaAdministracao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="01" />
+      <xs:enumeration value="02" />
+      <xs:enumeration value="03" />
+      <xs:enumeration value="04" />
+      <xs:enumeration value="05" />
+      <xs:enumeration value="06" />
+      <xs:enumeration value="07" />
+      <xs:enumeration value="08" />
+      <xs:enumeration value="09" />
+      <xs:enumeration value="10" />
+      <xs:enumeration value="11" />
+      <xs:enumeration value="12" />
+      <xs:enumeration value="13" />
+      <xs:enumeration value="14" />
+      <xs:enumeration value="15" />
+      <xs:enumeration value="16" />
+      <xs:enumeration value="17" />
+      <xs:enumeration value="18" />
+      <xs:enumeration value="19" />
+      <xs:enumeration value="20" />
+      <xs:enumeration value="21" />
+      <xs:enumeration value="22" />
+      <xs:enumeration value="23" />
+      <xs:enumeration value="24" />
+      <xs:enumeration value="25" />
+      <xs:enumeration value="26" />
+      <xs:enumeration value="27" />
+      <xs:enumeration value="28" />
+      <xs:enumeration value="29" />
+      <xs:enumeration value="30" />
+      <xs:enumeration value="31" />
+      <xs:enumeration value="32" />
+      <xs:enumeration value="33" />
+      <xs:enumeration value="34" />
+      <xs:enumeration value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ctm_anexoSolicitacaoRadio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="cabecalhoAnexo" type="tns:ct_anexoCabecalho" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosBeneficiario" type="tns:ct_beneficiarioDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosComplementaresBeneficiario" type="tns:ct_dadosComplementaresBeneficiarioRadio" />
+      <xs:element minOccurs="0" maxOccurs="1" name="medicoSolicitante" type="tns:ctm_anexoSolicitante" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diagnosticoOncologicoRadio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="diagRadio" type="tns:ct_diagnosticoOncologico" />
+            <xs:element minOccurs="0" maxOccurs="1" name="diagnosticoImagem" type="tns:dm_diagnosticoImagem" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="tratamentosAnteriores">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="cirurgia" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="datacirurgia" type="xs:date" />
+            <xs:element minOccurs="0" maxOccurs="1" name="quimioterapia" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="dataQuimioterapia" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCampos" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="doseCampo" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="doseTotal" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nrDias" type="xs:integer" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dtPrevistaInicio" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_dadosComplementaresBeneficiarioRadio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="idade" type="xs:integer" />
+      <xs:element minOccurs="1" maxOccurs="1" name="sexo" type="tns:dm_sexo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_diagnosticoImagem">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ctm_anexoSolicitacaoOPME">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="cabecalhoAnexo" type="tns:ct_anexoCabecalho" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosBeneficiario" type="tns:ct_beneficiarioDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="profissionalSolicitante" type="tns:ctm_anexoSolicitante" />
+      <xs:element minOccurs="0" maxOccurs="1" name="justificativaTecnica" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="especificacaoMaterial" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="opmeSolicitadas" type="tns:ArrayOfCtm_anexoSolicitacaoOPMEOpmeSolicitada" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Observacao" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCtm_anexoSolicitacaoOPMEOpmeSolicitada">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="opmeSolicitada">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="identificacaoOPME" type="tns:ct_procedimentoDados" />
+            <xs:element minOccurs="1" maxOccurs="1" name="opcaoFabricante" type="tns:dm_opcaoFabricante" />
+            <xs:element minOccurs="0" maxOccurs="1" name="quantidadeSolicitada" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="valorSolicitado" type="xs:decimal" />
+            <xs:element minOccurs="0" maxOccurs="1" name="registroANVISA" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="codigoRefFabricante" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoFuncionamento" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_opcaoFabricante">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="cto_odontoSolicitacaoGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaPrestador" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaPrincipal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCarteira" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeBeneficiario" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="atendimentoRN" type="tns:dm_simNao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCNS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="identificadorBeneficiario" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="planoBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeEmpresa" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroTelefone" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeTitular" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosProfissionaisResponsaveis">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="nomeProfSolic" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="croSolic" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ufSolic" type="tns:dm_UF" />
+            <xs:element minOccurs="0" maxOccurs="1" name="cbosSolic" type="tns:dm_CBOS" />
+            <xs:element minOccurs="0" maxOccurs="1" name="codigoProfExec" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="nomeProfExec" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="croExec" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="ufExec" type="tns:dm_UF" />
+            <xs:element minOccurs="0" maxOccurs="1" name="cnesExec" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="nomeProfExec2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="croExec2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ufExec2" type="tns:dm_UF" />
+            <xs:element minOccurs="1" maxOccurs="1" name="cbosExec2" type="tns:dm_CBOS" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="procedimentosSolicitados">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="procSolic" type="tns:ct_procedimentoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="denteRegiao">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="1" maxOccurs="1" name="codDente" type="tns:dm_dente" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="codRegiao" type="tns:dm_regiao" />
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="denteFace" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="qtdProc" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="qtdUS" type="xs:decimal" />
+            <xs:element minOccurs="1" maxOccurs="1" name="valorProc" type="xs:decimal" />
+            <xs:element minOccurs="0" maxOccurs="1" name="valorFranquia" type="xs:decimal" />
+            <xs:element minOccurs="1" maxOccurs="1" name="aut" type="tns:dm_simNao" />
+            <xs:element minOccurs="0" maxOccurs="1" name="dataRealizacao" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="dataTerminoTrat" type="xs:date" />
+      <xs:element minOccurs="1" maxOccurs="1" name="tipoAtendimento" type="tns:dm_tipoAtendimentoOdonto" />
+      <xs:element minOccurs="0" maxOccurs="1" name="qtdTotalUS" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="valorTotalProc" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="valorTotalFranquia" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="odontoInicial" type="tns:cto_anexoSituacaoInicial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_dente">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="11" />
+      <xs:enumeration value="12" />
+      <xs:enumeration value="13" />
+      <xs:enumeration value="14" />
+      <xs:enumeration value="15" />
+      <xs:enumeration value="16" />
+      <xs:enumeration value="17" />
+      <xs:enumeration value="18" />
+      <xs:enumeration value="19" />
+      <xs:enumeration value="21" />
+      <xs:enumeration value="22" />
+      <xs:enumeration value="23" />
+      <xs:enumeration value="24" />
+      <xs:enumeration value="25" />
+      <xs:enumeration value="26" />
+      <xs:enumeration value="27" />
+      <xs:enumeration value="28" />
+      <xs:enumeration value="29" />
+      <xs:enumeration value="31" />
+      <xs:enumeration value="32" />
+      <xs:enumeration value="33" />
+      <xs:enumeration value="34" />
+      <xs:enumeration value="35" />
+      <xs:enumeration value="36" />
+      <xs:enumeration value="37" />
+      <xs:enumeration value="38" />
+      <xs:enumeration value="39" />
+      <xs:enumeration value="41" />
+      <xs:enumeration value="42" />
+      <xs:enumeration value="43" />
+      <xs:enumeration value="44" />
+      <xs:enumeration value="45" />
+      <xs:enumeration value="46" />
+      <xs:enumeration value="47" />
+      <xs:enumeration value="48" />
+      <xs:enumeration value="49" />
+      <xs:enumeration value="51" />
+      <xs:enumeration value="52" />
+      <xs:enumeration value="53" />
+      <xs:enumeration value="54" />
+      <xs:enumeration value="55" />
+      <xs:enumeration value="59" />
+      <xs:enumeration value="61" />
+      <xs:enumeration value="62" />
+      <xs:enumeration value="63" />
+      <xs:enumeration value="64" />
+      <xs:enumeration value="65" />
+      <xs:enumeration value="69" />
+      <xs:enumeration value="71" />
+      <xs:enumeration value="72" />
+      <xs:enumeration value="73" />
+      <xs:enumeration value="74" />
+      <xs:enumeration value="75" />
+      <xs:enumeration value="79" />
+      <xs:enumeration value="81" />
+      <xs:enumeration value="82" />
+      <xs:enumeration value="83" />
+      <xs:enumeration value="84" />
+      <xs:enumeration value="85" />
+      <xs:enumeration value="89" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_regiao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AI" />
+      <xs:enumeration value="AS" />
+      <xs:enumeration value="HASD" />
+      <xs:enumeration value="HASE" />
+      <xs:enumeration value="HAID" />
+      <xs:enumeration value="HAIE" />
+      <xs:enumeration value="ASAI" />
+      <xs:enumeration value="S1" />
+      <xs:enumeration value="S2" />
+      <xs:enumeration value="S3" />
+      <xs:enumeration value="S4" />
+      <xs:enumeration value="S5" />
+      <xs:enumeration value="S6" />
+      <xs:enumeration value="LG" />
+      <xs:enumeration value="CL" />
+      <xs:enumeration value="AB" />
+      <xs:enumeration value="PA" />
+      <xs:enumeration value="MJ" />
+      <xs:enumeration value="PD" />
+      <xs:enumeration value="PM" />
+      <xs:enumeration value="RM" />
+      <xs:enumeration value="MA" />
+      <xs:enumeration value="GI" />
+      <xs:enumeration value="PT" />
+      <xs:enumeration value="TP" />
+      <xs:enumeration value="RIS" />
+      <xs:enumeration value="RCSD" />
+      <xs:enumeration value="RPSD" />
+      <xs:enumeration value="RCID" />
+      <xs:enumeration value="RMSD" />
+      <xs:enumeration value="RCSE" />
+      <xs:enumeration value="RPSE" />
+      <xs:enumeration value="RMSE" />
+      <xs:enumeration value="RII" />
+      <xs:enumeration value="RPID" />
+      <xs:enumeration value="RMID" />
+      <xs:enumeration value="RCIE" />
+      <xs:enumeration value="RPIE" />
+      <xs:enumeration value="RMIE" />
+      <xs:enumeration value="RMD" />
+      <xs:enumeration value="RME" />
+      <xs:enumeration value="RPD" />
+      <xs:enumeration value="RPE" />
+      <xs:enumeration value="RMPE" />
+      <xs:enumeration value="RMPD" />
+      <xs:enumeration value="SM" />
+      <xs:enumeration value="TU" />
+      <xs:enumeration value="SI" />
+      <xs:enumeration value="FLI" />
+      <xs:enumeration value="FLA" />
+      <xs:enumeration value="UV" />
+      <xs:enumeration value="PP" />
+      <xs:enumeration value="PI" />
+      <xs:enumeration value="LS" />
+      <xs:enumeration value="LI" />
+      <xs:enumeration value="RL" />
+      <xs:enumeration value="RP" />
+      <xs:enumeration value="RV" />
+      <xs:enumeration value="RSMD" />
+      <xs:enumeration value="RSME" />
+      <xs:enumeration value="RSL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dm_tipoAtendimentoOdonto">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="cto_anexoSituacaoInicial">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaAnexo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaReferenciada" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaOperadora" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCarteira" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ct_situacaoInicial">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="situacaoClinica" type="tns:ArrayOfCt_situacaoClinicaDentes" />
+            <xs:element minOccurs="1" maxOccurs="1" name="doencaPeriodontal" type="xs:boolean" />
+            <xs:element minOccurs="1" maxOccurs="1" name="alteracaoTecidoMole" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCt_situacaoClinicaDentes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dentes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="elementoDentario" type="tns:dm_dente" />
+            <xs:element minOccurs="1" maxOccurs="1" name="condicaoClinica" type="tns:dm_condicaoClinica" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_condicaoClinica">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A" />
+      <xs:enumeration value="E" />
+      <xs:enumeration value="H" />
+      <xs:enumeration value="C" />
+      <xs:enumeration value="R" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ctm_prorrogacaoSolicitacaoGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaPrestador" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nrGuiaReferenciada" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosBeneficiario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="numeroCarteira" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="nomeBeneficiario" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="identificadorBeneficiario" type="xs:base64Binary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosContratadoSolicitante" type="tns:ct_contratadoDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosProfissionalSolicitante" type="tns:ct_contratadoProfissionalDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosInternacao">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="qtDiariasAdicionais" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="tipoAcomodacaoSolicitada" type="tns:dm_tipoAcomodacao" />
+            <xs:element minOccurs="0" maxOccurs="1" name="indicacaoClinica" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="procedimentosAdicionais">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="procedimento" type="tns:ct_procedimentoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="quantidadeSolicitada" type="xs:integer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="anexoClinicoProrrogacao">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoQuimioterapia" type="tns:ctm_anexoSolicitacaoQuimio" />
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoRadioterapia" type="tns:ctm_anexoSolicitacaoRadio" />
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoOPME" type="tns:ctm_anexoSolicitacaoOPME" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dataSolicitacao" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_tipoAcomodacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="02" />
+      <xs:enumeration value="09" />
+      <xs:enumeration value="10" />
+      <xs:enumeration value="11" />
+      <xs:enumeration value="12" />
+      <xs:enumeration value="13" />
+      <xs:enumeration value="14" />
+      <xs:enumeration value="15" />
+      <xs:enumeration value="16" />
+      <xs:enumeration value="17" />
+      <xs:enumeration value="18" />
+      <xs:enumeration value="19" />
+      <xs:enumeration value="20" />
+      <xs:enumeration value="21" />
+      <xs:enumeration value="22" />
+      <xs:enumeration value="25" />
+      <xs:enumeration value="26" />
+      <xs:enumeration value="27" />
+      <xs:enumeration value="28" />
+      <xs:enumeration value="29" />
+      <xs:enumeration value="30" />
+      <xs:enumeration value="31" />
+      <xs:enumeration value="32" />
+      <xs:enumeration value="33" />
+      <xs:enumeration value="36" />
+      <xs:enumeration value="37" />
+      <xs:enumeration value="38" />
+      <xs:enumeration value="39" />
+      <xs:enumeration value="40" />
+      <xs:enumeration value="41" />
+      <xs:enumeration value="43" />
+      <xs:enumeration value="44" />
+      <xs:enumeration value="45" />
+      <xs:enumeration value="46" />
+      <xs:enumeration value="47" />
+      <xs:enumeration value="48" />
+      <xs:enumeration value="49" />
+      <xs:enumeration value="50" />
+      <xs:enumeration value="51" />
+      <xs:enumeration value="52" />
+      <xs:enumeration value="53" />
+      <xs:enumeration value="56" />
+      <xs:enumeration value="57" />
+      <xs:enumeration value="58" />
+      <xs:enumeration value="59" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ctm_sp-sadtSolicitacaoGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="cabecalhoSolicitacao" type="tns:ct_guiaCabecalho" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaPrincipal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosBeneficiario" type="tns:ct_beneficiarioDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosSolicitante">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="contratadoSolicitante" type="tns:ct_contratadoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="profissionalSolicitante" type="tns:ct_contratadoProfissionalDados" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="caraterAtendimento" type="tns:dm_caraterAtendimento" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dataSolicitacao" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="indicacaoClinica" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="procedimentosSolicitados">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="procedimento" type="tns:ct_procedimentoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="quantidadeSolicitada" type="xs:integer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosExecutante">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="codigonaOperadora" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="nomeContratado" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CNES" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="anexoClinico">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoQuimioterapia" type="tns:ctm_anexoSolicitacaoQuimio" />
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoRadioterapia" type="tns:ctm_anexoSolicitacaoRadio" />
+            <xs:element minOccurs="0" maxOccurs="1" name="solicitacaoOPME" type="tns:ctm_anexoSolicitacaoOPME" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_guiaCabecalho">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="registroANS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaPrestador" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Signature">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.w3.org/2000/09/xmldsig#" base="q1:SignatureType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="autorizacaoProcedimentoWS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="cabecalho" type="tns:cabecalhoTransacao" />
+        <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoProcedimento" type="tns:ct_situacaoAutorizacao" />
+        <xs:element minOccurs="0" maxOccurs="1" name="hash" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Signature" type="tns:Signature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ct_situacaoAutorizacao">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoInternacao" type="tns:ctm_autorizacaoInternacao" />
+        <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoProrrogacao" type="tns:ctm_autorizacaoProrrogacao" />
+        <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoServico" type="tns:ctm_autorizacaoServico" />
+        <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoServicoOdonto" type="tns:cto_autorizacaoServico" />
+        <xs:element minOccurs="0" maxOccurs="1" name="mensagemErro" type="tns:ct_motivoGlosa" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ctm_autorizacaoInternacao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoDosServicos" type="tns:ctm_autorizacaoServico" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dataProvavelAdmissao" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="qtdDiariasAutorizadas" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="tipoAcomodacaoAutorizada" type="tns:dm_tipoAcomodacao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ctm_autorizacaoServico">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosAutorizacao" type="tns:ct_autorizacaoDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosBeneficiario" type="tns:ct_beneficiarioDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="prestadorAutorizado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="dadosContratado" type="tns:ct_contratadoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="cnesContratado" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="statusSolicitacao" type="tns:dm_statusSolicitacao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="motivosNegativa" type="tns:ArrayOfCt_motivoGlosa" />
+      <xs:element minOccurs="0" maxOccurs="1" name="servicosAutorizados" type="tns:ArrayOfCt_procedimentoAutorizado" />
+      <xs:element minOccurs="0" maxOccurs="1" name="observacao" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoQuimio" type="tns:ctm_autorizacaoQuimio" />
+      <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoRadio" type="tns:ctm_autorizacaoRadio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_autorizacaoDados">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaPrestador" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroGuiaOperadora" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dataAutorizacao" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="senha" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dataValidadeSenha" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="dm_statusSolicitacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="6" />
+      <xs:enumeration value="7" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfCt_motivoGlosa">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="motivoNegativa" type="tns:ct_motivoGlosa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_motivoGlosa">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="codigoGlosa" type="tns:dm_tipoGlosa" />
+      <xs:element minOccurs="0" maxOccurs="1" name="descricaoGlosa" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCt_procedimentoAutorizado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="servicoAutorizado" type="tns:ct_procedimentoAutorizado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ct_procedimentoAutorizado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="procedimento" type="tns:ct_procedimentoDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="quantidadeSolicitada" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="quantidadeAutorizada" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="valorSolicitado" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="valorAutorizado" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="opcaoFabricante" type="tns:dm_opcaoFabricante" />
+      <xs:element minOccurs="0" maxOccurs="1" name="registroANVISA" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="codigoRefFabricante" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoFuncionamento" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="motivosNegativa" type="tns:ArrayOfCt_motivoGlosa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ctm_autorizacaoQuimio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosAutorizacao" type="tns:ct_autorizacaoDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCarteira" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="statusSolicitacao" type="tns:dm_statusSolicitacao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCNS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosComplementaresBeneficiario" type="tns:ct_dadosComplementaresBeneficiario" />
+      <xs:element minOccurs="0" maxOccurs="1" name="medicoSolicitante" type="tns:ctm_anexoSolicitante" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diagnosticoOncologicoQuimioterapia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="diagQuimio" type="tns:ct_diagnosticoOncologico" />
+            <xs:element minOccurs="1" maxOccurs="1" name="tumor" type="tns:dm_tumor" />
+            <xs:element minOccurs="1" maxOccurs="1" name="nodulo" type="tns:dm_nodulo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="metastase" type="tns:dm_metastase" />
+            <xs:element minOccurs="1" maxOccurs="1" name="tipoQuimioterapia" type="tns:dm_tipoQuimioterapia" />
+            <xs:element minOccurs="0" maxOccurs="1" name="planoTerapeutico" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="drogasSolicitadas" type="tns:ArrayOfCt_drogasSolicitadas" />
+      <xs:element minOccurs="0" maxOccurs="1" name="tratamentosAnteriores">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="cirurgia" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="datacirurgia" type="xs:date" />
+            <xs:element minOccurs="0" maxOccurs="1" name="areaIrradiada" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="dataIrradiacao" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCiclos" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="cicloAtual" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diasCicloAtual" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="intervaloCiclos" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="motivosNegativa" type="tns:ArrayOfCt_motivoGlosa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ctm_autorizacaoRadio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosAutorizacao" type="tns:ct_autorizacaoDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCarteira" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCNS" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="statusSolicitacao" type="tns:dm_statusSolicitacao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosComplementaresBeneficiario" type="tns:ct_dadosComplementaresBeneficiarioRadio" />
+      <xs:element minOccurs="0" maxOccurs="1" name="medicoSolicitante" type="tns:ctm_anexoSolicitante" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diagnosticoOncologicoRadio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="diagRadio" type="tns:ct_diagnosticoOncologico" />
+            <xs:element minOccurs="0" maxOccurs="1" name="diagnosticoImagem" type="tns:dm_diagnosticoImagem" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="tratamentosAnteriores">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="cirurgia" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="datacirurgia" type="xs:date" />
+            <xs:element minOccurs="0" maxOccurs="1" name="quimioterapia" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="dataQuimioterapia" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCampos" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="doseCampo" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="doseTotal" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nrDias" type="xs:integer" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dtPrevistaInicio" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="motivosNegativa" type="tns:ArrayOfCt_motivoGlosa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ctm_autorizacaoProrrogacao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="autorizacaoDosServicos" type="tns:ctm_autorizacaoServico" />
+      <xs:element minOccurs="0" maxOccurs="1" name="diariasAutorizadas" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="acomodacaoAutorizada" type="tns:dm_tipoAcomodacao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="justificativaOperadora" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cto_autorizacaoServico">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="dadosAutorizacao" type="tns:ct_autorizacaoDados" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCarteira" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nomeBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numeroCNS" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="identificadorBeneficiario" type="xs:base64Binary" />
+      <xs:element minOccurs="1" maxOccurs="1" name="statusSolicitacao" type="tns:dm_statusSolicitacao" />
+      <xs:element minOccurs="0" maxOccurs="1" name="prestadorAutorizado" type="tns:ct_contratadoDados" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="procedimentosAutorizados">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="procSolic" type="tns:ct_procedimentoDados" />
+            <xs:element minOccurs="0" maxOccurs="1" name="denteRegiao">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="1" maxOccurs="1" name="codDente" type="tns:dm_dente" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="codRegiao" type="tns:dm_regiao" />
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="denteFace" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="qtdProc" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="qtdUS" type="xs:decimal" />
+            <xs:element minOccurs="1" maxOccurs="1" name="valorProc" type="xs:decimal" />
+            <xs:element minOccurs="0" maxOccurs="1" name="valorFranquia" type="xs:decimal" />
+            <xs:element minOccurs="1" maxOccurs="1" name="aut" type="tns:dm_simNao" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="motivosNegativa" type="tns:ct_motivoGlosa" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="motivosNegativa" type="tns:ArrayOfCt_motivoGlosa" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -7,17 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Acesso webservice TISS/ANS</title>
 
-    <link rel="stylesheet" href="./css/bootstrap.css"  />
-
+    <link href="bootstrap-4.0.0/css/bootstrap.css" rel="stylesheet" />
 
     <script src="./js/jquery-3.4.1.js"></script>
-    <script src="./js/bootstrap.js"></script>
+    <script src="bootstrap-4.0.0/js/bootstrap.js"></script>
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
-                <h2 class="card-title">TISS/ANS</h2>
+        <div class="container-fluid">
+                <h3>TISS/ANS</h3>
                     <label for="numeroCarteira">Número Carteira</label>
                     <input type="text" class="form-control" id="numeroCarteira" /> 
 
@@ -42,7 +41,7 @@
                 <input type="button" id="btnRecebeXML" class="btn" value="Gera XML de envio" />
              </div>
         <br />
-        <div class="container" style="border:solid 1px #000;">
+        <div class="container-fluid" style="border:solid 1px #000;">
             <table class="table">
              <thead>
                 <tr>
@@ -94,30 +93,39 @@
                 }
             });
 
-            $('#btnEnvia').click(function () { 
-                try {
-                    $.ajax({
-                        url: 'default.aspx/enviaSolicitacao',
-                        data: "{numerocarteira:'" + $('#numeroCarteira').val() + "', sequencial:'" + $('#sequencial').val() + "', codigoProcedimento:'" + $('#codigoProcedimento').val() + "', descricaoProcedimento:'" + $('#descricaoProcedimento').val() + "',  codigoPrestadorNaOperadora:'" + $('#codigoPrestadorNaOperadora').val() + "', registroANS:'" + $('#registroANS').val() + "'}",
-                        type: "POST",
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        async: true,
-                        success: function (response) {
-                            if (response) {
-                                $('#retornoAutorizacaoXML').text(response.d);
-                            } else {
-                                $('#retornoAutorizacaoXML').html('Não retornou nada');
-                            }
-                        },
-                        error: (function Error(request, settings, error) {
-                            $('#retornoAutorizacaoXML').html('Erro ajaxClass: ' + settings.url + ' ' + ' Erro: ' + error + ' text: ' + request.responseText);
-                        })
-                    })
-                } catch (e) {
-                    $('#retornoAutorizacaoXML').html(e);
+            $('#btnEnvia').click(function () {
+                $('#retornoAutorizacaoXML').text('Enviando ...');
+
+                if (vazio($('#numeroCarteira').val())) { 
+                    alert('Número da carteira inválido ! ');
                 }
-            })
+                if (vazio($('#codigoProcedimento').val())) {
+                    alert('Número do procedimento inválido ! ');
+                }
+
+            try {
+                $.ajax({
+                    url: 'default.aspx/enviaSolicitacao',
+                    data: "{numerocarteira:'" + $('#numeroCarteira').val() + "', sequencial:'" + $('#sequencial').val() + "', codigoProcedimento:'" + $('#codigoProcedimento').val() + "', descricaoProcedimento:'" + $('#descricaoProcedimento').val() + "',  codigoPrestadorNaOperadora:'" + $('#codigoPrestadorNaOperadora').val() + "', registroANS:'" + $('#registroANS').val() + "'}",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: true,
+                    success: function (response) {
+                        if (response) {
+                            $('#retornoAutorizacaoXML').text(response.d);
+                        } else {
+                            $('#retornoAutorizacaoXML').html('Não retornou nada');
+                        }
+                    },
+                    error: (function Error(request, settings, error) {
+                        $('#retornoAutorizacaoXML').html('Erro ajaxClass: ' + settings.url + ' ' + ' Erro: ' + error + ' text: ' + request.responseText);
+                    })
+                })
+            } catch (e) {
+                $('#retornoAutorizacaoXML').html(e);
+            }
+        })
         });
 
         function getRandom() {

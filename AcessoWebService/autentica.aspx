@@ -6,59 +6,61 @@
 
 <script runat="server">
 
-    void Page_Load(object sender, EventArgs e)
-    {
-        if (Request.Cookies["cokLogin"] != null)
-        {
-            Login1.UserName = Request.Cookies["cokLogin"].Value;
-        }
-
-    }
-
-    void OnLoggingIn(object sender, System.Web.UI.WebControls.LoginCancelEventArgs e)
-    {
-        Login1.InstructionText = "Aguarde, verificando informações...";
-
-    }
-
-    void OnLoginError(object sender, EventArgs e)
-    {
-        // Login1.HelpPageText = "Help with logging in...";
-        // Login1.PasswordRecoveryText = "Forgot your password?";    
-    }
-
-    protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
-    {
-
-        try
-        {
-            //Usuario usu = new Usuario();
-            //UsuarioDto dto = new UsuarioDto();
-            //dto.setLogin(Login1.UserName);
-            //dto.setSenha(Login1.Password);
-            //UsuarioDto _dto = usu.login(dto);
-
-            //if (_dto.idtUsuario != null)
-            //{
-            if (Login1.UserName == "acshac" && Login1.Password == "acshac123")
-                if (Request.Browser.Cookies)
+            void Page_Load(object sender, EventArgs e)
+            {
+                if (Request.Cookies["cokLogin"] != null)
                 {
-                    HttpCookie cokLogin = new HttpCookie("cokLogin");
-                    HttpCookie cokIdtUsuario = new HttpCookie("cokIdtUsuario");
-                    cokLogin.Value = Login1.UserName;
-                    cokLogin.Expires = DateTime.Today.AddDays(30);
-
-            //        cokIdtUsuario.Value = _dto.idtUsuario.ToString();
-            //        cokIdtUsuario.Expires = DateTime.Today.AddDays(30);
-
-                    Response.Cookies.Add(cokLogin);
-            //        Response.Cookies.Add(cokIdtUsuario);
-
-
+                    Login1.UserName = Request.Cookies["cokLogin"].Value;
                 }
-                FormsAuthentication.RedirectFromLoginPage(Login1.UserName, false);
+
             }
-            
+
+            void OnLoggingIn(object sender, System.Web.UI.WebControls.LoginCancelEventArgs e)
+            {
+                Login1.InstructionText = "Aguarde, verificando informações...";
+
+            }
+
+            void OnLoginError(object sender, EventArgs e)
+            {
+                // Login1.HelpPageText = "Help with logging in...";
+                // Login1.PasswordRecoveryText = "Forgot your password?";    
+            }
+
+            protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+            {
+
+                try
+                {
+                    //Usuario usu = new Usuario();
+                    //UsuarioDto dto = new UsuarioDto();
+                    //dto.setLogin(Login1.UserName);
+                    //dto.setSenha(Login1.Password);
+                    //UsuarioDto _dto = usu.login(dto);
+
+                    //if (_dto.idtUsuario != null)
+                    //{
+                    if (Login1.UserName == "acshac" && Login1.Password == "acshac123")
+                    { 
+                        if (Request.Browser.Cookies)
+                        {
+                            HttpCookie cokLogin = new HttpCookie("cokLogin");
+                            HttpCookie cokIdtUsuario = new HttpCookie("cokIdtUsuario");
+                            cokLogin.Value = Login1.UserName;
+                            cokLogin.Expires = DateTime.Today.AddDays(30);
+
+                            //        cokIdtUsuario.Value = _dto.idtUsuario.ToString();
+                            //        cokIdtUsuario.Expires = DateTime.Today.AddDays(30);
+
+                            Response.Cookies.Add(cokLogin);
+                            //        Response.Cookies.Add(cokIdtUsuario);
+
+
+                        }
+                        FormsAuthentication.RedirectFromLoginPage(Login1.UserName, false);
+                    }
+
+
         }
         catch (Exception ex)
         {
